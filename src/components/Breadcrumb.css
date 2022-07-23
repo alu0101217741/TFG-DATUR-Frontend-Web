@@ -1,0 +1,19 @@
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--bs-breadcrumb-divider-color);
+  content: var(--bs-breadcrumb-divider, ">");
+}
+
+.breadcrumb {
+  --bs-breadcrumb-divider-color: rgb(0, 52, 89);
+  --bs-breadcrumb-item-active-color: rgb(0, 52, 89);
+  font-size: 17px;
+}
+
+.breadcrumb-item a {
+  color: rgb(97, 93, 93);
+  text-decoration: none;
+}
+
+.home-icon {
+  font-size: 1.2rem;
+}

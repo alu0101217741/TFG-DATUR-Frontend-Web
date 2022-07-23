@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 function SectionNavbar() {
   return (
     <div className="d-none d-lg-block">
-      <Navbar key="lg" bg="light" expand="lg" className="mb-3">
+      <Navbar key="lg" bg="light" expand="lg">
         <Container fluid>
           <Container>
             <Nav
