@@ -1,5 +1,5 @@
 .navbar {
-  background: rgb(0, 52, 89);
+  background: linear-gradient(90deg, rgb(40, 40, 253) 0%, rgb(26, 23, 23) 100%);
   height: 80px;
   display: flex;
   justify-content: center;
@@ -8,7 +8,6 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0px 0px 5px black;
 }
 
 .navbar-container {
@@ -20,7 +19,7 @@
 }
 
 .navbar-logo {
-  color: rgb(255, 255, 255);
+  color: #fff;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
@@ -51,7 +50,7 @@
 }
 
 .nav-links {
-  color: rgb(255, 255, 255);
+  color: #fff;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -60,7 +59,7 @@
 }
 
 .nav-links:hover {
-  border-bottom: 4px solid rgb(255, 255, 255);
+  border-bottom: 4px solid #fff;
   transition: all 0.2s ease-out;
 }
 
