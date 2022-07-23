@@ -1,92 +1,52 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
 import React from "react";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 function Footer() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        boxShadow: 25,
-        minHeight: "40vh",
-        backgroundColor: "#003459",
-      }}
-    >
-      <CssBaseline />
-      <Container component="main" sx={{ mt: 4, mb: 2 }} maxWidth="lg">
-        <Grid container spacing={2}>
-          <Grid item md={4} xs={12}>
-            <Typography
-              variant="h4"
-              color="common.white"
-              align="center"
-              gutterBottom
+    <div className="footer-container">
+      <div className="footer-link">
+        <div className="footer-link-wrapper">
+          <div className="footer-link-content">
+            <h2>Sobre nosotros</h2>
+            <Link to="/">Hola</Link>
+            <Link to="/">Hola</Link>
+            <Link to="/">Hola</Link>
+          </div>
+        </div>
+        <div className="footer-link-wrapper">
+          <div className="footer-link-content">
+            <h2>Sobre nosotros</h2>
+            <Link to="/">Hola</Link>
+            <Link to="/">Hola</Link>
+            <Link to="/">Hola</Link>
+          </div>
+        </div>
+      </div>
+      <div className="social-networks">
+        <div className="social-networks-wrapper">
+          <div className="social-networks-content">
+            <Link
+              className="social-network-logo"
+              to="/"
+              target="_blank"
+              aria-label="Twitter"
             >
-              Turismo
-            </Typography>
-            <Typography color="common.white" paragraph={true} align="justify">
-              Esta web realiza el procesamiento y la visualización de datos
-              proporcionados por repositorios Open Data acerca del sector
-              turístico en Canarias. La recogida de estos datos es actualizada
-              semanalmente.
-            </Typography>
-          </Grid>
-          <Grid item md={4} xs={12}>
-            <p>
-              Sticky footer Sticky footer Sticky footer Sticky footer Sticky
-              footer
-            </p>
-          </Grid>
-          <Grid item md={4} xs={12}>
-            <Typography color="common.white">
-              Sticky footer Sticky footer Sticky footer Sticky footer Sticky
-              footer
-            </Typography>
-            <p>
-              Sticky footer Sticky footer Sticky footer Sticky footer Sticky
-              footer
-            </p>
-          </Grid>
-        </Grid>
-      </Container>
-      <Box
-        component="footer"
-        sx={{
-          py: 3,
-          px: 2,
-          mt: "auto",
-          backgroundColor: (theme) =>
-            theme.palette.mode === "light"
-              ? theme.palette.grey[200]
-              : theme.palette.grey[800],
-        }}
-      >
-        <Container maxWidth="lg">
-          <Typography variant="body1">
-            My sticky footer can be found here.
-          </Typography>
-          <Copyright />
-        </Container>
-      </Box>
-    </Box>
+              <i className="fab fa-twitter"></i>
+            </Link>
+            <Link
+              className="social-network-logo"
+              to="/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i className="fab fa-linkedin"></i>
+            </Link>
+          </div>
+          <small className="copyright">Copyright © Turismo 2022</small>
+        </div>
+      </div>
+    </div>
   );
 }
 

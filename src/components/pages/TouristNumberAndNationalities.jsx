@@ -1,9 +1,12 @@
 import React from "react";
+import SectionNavbar from "../SectionNavbar";
+import SectionMainNavbar from "../SectionMainNavbar";
 
 export default function TouristNumberAndNationalities() {
   return (
-    <h1 className="touristNumberAndNationalities">
-      Tourist Number And Nationalities
-    </h1>
+    <div>
+      <SectionMainNavbar />
+      <SectionNavbar />;
+    </div>
   );
 }

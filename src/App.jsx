@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Navbar } from "./components/Navbar";
 import Home from "./components/pages/Home";
 import TouristExpectations from "./components/pages/TouristExpectations";
 import TouristNumberAndNationalities from "./components/pages/TouristNumberAndNationalities";
@@ -11,11 +10,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route
-            path="/tourist-number-and-nationalities"
+            path="/numero-de-turistas-y-nacionalidades"
             element={<TouristNumberAndNationalities />}
           />
           <Route path="/tourist-stay" element={<TouristStay />} />

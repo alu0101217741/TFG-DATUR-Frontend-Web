@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 function Card(props) {
   return (
     <>
-      <li className="cards__item">
-        <Link className="cards__item__link" to={props.path}>
-          <figure className="cards__item__pic-wrap" data-category={props.label}>
-            <img className="cards__item__img" alt="Travel" src={props.src} />
+      <li className="cards-item">
+        <Link className="cards-item-link" to={props.path}>
+          <figure className="cards-item-pic-wrap" data-category={props.label}>
+            <img className="cards-item-img" alt="Travel" src={props.src} />
           </figure>
-          <div className="cards__item__info">
-            <h5 className="cards__item__text">{props.text}</h5>
+          <div className="cards-item-info">
+            <h2 className="cards-item-title">{props.title}</h2>
+            <p className="cards-item-text">{props.text}</p>
+            <p className="cards-item-details">{props.details}</p>
           </div>
         </Link>
       </li>

@@ -1,0 +1,38 @@
+.navbar {
+  background: rgb(0, 52, 89);
+  height: 80px;
+  font-size: 1.2rem;
+  position: sticky;
+  box-shadow: 0px 0px 5px black;
+}
+
+.navbar-name {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.navbar-name:hover {
+  color: #fff;
+}
+
+.nav-section {
+  color: rgb(255, 255, 255);
+}
+
+.nav-section:hover {
+  border-bottom: 4px solid rgb(255, 255, 255);
+  transition: all 0.2s ease-out;
+  color: rgb(255, 255, 255);
+}
+
+.mobile-menu {
+  margin-top: 1em;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280255, 255, 255, 1%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e");
+}
+
+.navbar-toggler {
+  border-color: #fff;
+}
