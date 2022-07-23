@@ -5,34 +5,42 @@ import "./CardsGroup.css";
 function CardsGroup() {
   return (
     <div className="cards">
-      <h1>Estas son nuestras secciones</h1>
-      <div className="cards__container">
-        <div className="cards__wrapper">
-          <ul className="cards__items">
+      <h1>Nuestras secciones</h1>
+      <div className="cards-container">
+        <div className="cards-wrapper">
+          <ul className="cards-items">
             <Card
               src="images/touristNumberAndNationalities.jpg"
-              text="Explore the hidden waterfall deep inside the Amazon Jungle"
-              label="Adventure"
+              title="Número turistas y nacionalidades"
+              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              label="Instituto Nacional de Estadística"
+              details="Actualización estimada de los datos: mensual"
               path="/services"
             />
             <Card
-              src="images/touristNumberAndNationalities.jpg"
-              text="Travel through the Islands of Bali in a Private Cruise"
-              label="Luxury"
+              src="images/tourist-spending.jpg"
+              title="Gasto turístico"
+              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              label="Instituto Nacional de Estadística"
+              details="Actualización estimada de los datos: mensual"
               path="/services"
             />
           </ul>
-          <ul className="cards__items">
+          <ul className="cards-items">
             <Card
-              src="images/touristNumberAndNationalities.jpg"
-              text="Set Sail in the Atlantic Ocean visiting Uncharted Waters"
-              label="Mystery"
+              src="images/touristStay.jpg"
+              title="Estancia turística"
+              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              label="Instituto Nacional de Estadística"
+              details="Actualización estimada de los datos: mensual"
               path="/services"
             />
             <Card
               src="images/touristNumberAndNationalities.jpg"
-              text="Experience Football on Top of the Himilayan Mountains"
-              label="Adventure"
+              title="Expectativas turísticas"
+              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              label="Instituto Nacional de Estadística"
+              details="Actualización estimada de los datos: mensual"
               path="/products"
             />
           </ul>

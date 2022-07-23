@@ -1,24 +1,30 @@
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
 .slogan-container {
-  background: url("../../public/images/tourism.jpg") center center/cover
-    no-repeat;
   height: 50vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
 }
 
-h1 {
+.slogan-container h1 {
+  color: rgb(255, 255, 255);
   font-size: 60px;
 }
 
-p {
+.slogan-container p {
   font-size: 25px;
   margin-top: 20px;
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-family: "PT Sans", sans-serif;
 }
 
