@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { getDataFromApi } from "../../services/getDataFromApi";
 import ColumnComparisonChart from "../Graphics/touristStay/ColumnComparisonChart";
-import ColumnDrilldown from "../Graphics/touristStay/ColumnDrilldown";
+import ColumnDrilldownStayByIslandChart from "../Graphics/touristStay/ColumnDrilldownStayByIslandChart";
 import LineChart from "../Graphics/touristStay/LineChart";
 
 function TouristStayGraph() {
@@ -19,7 +19,7 @@ function TouristStayGraph() {
         <Container>
           <LineChart data={[...data]} />
           <ColumnComparisonChart data={[...data]} />
-          <ColumnDrilldown data={[...data]} />
+          <ColumnDrilldownStayByIslandChart data={[...data]} />
         </Container>
       </Container>
     </div>
