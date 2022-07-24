@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import ".//TouristNumberAndNationalitiesContent.css";
+import "./TouristNumberAndNationalitiesContent.css";
 
 function TouristNumberAndNationalities() {
   return (

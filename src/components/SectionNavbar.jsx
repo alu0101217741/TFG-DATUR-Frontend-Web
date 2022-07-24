@@ -2,8 +2,9 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
-function SectionNavbar() {
+function SectionNavbar({ activeLink }) {
   return (
     <div className="d-none d-lg-block">
       <Navbar key="lg" bg="light" expand="lg">
@@ -13,15 +14,42 @@ function SectionNavbar() {
               fill
               justify
               variant="tabs"
-              defaultActiveKey="/numero-de-turistas-y-nacionalidades"
               className="justify-content-center flex-grow-1 pe-3"
             >
-              <Nav.Link href="/numero-de-turistas-y-nacionalidades">
+              <Nav.Link
+                as={Link}
+                to="/numero-de-turistas-y-nacionalidades"
+                className={
+                  activeLink === "/numero-de-turistas-y-nacionalidades"
+                    ? "active"
+                    : ""
+                }
+              >
                 Número de turistas y nacionalidades
               </Nav.Link>
-              <Nav.Link href="/gasto-turistico">Gasto turístico</Nav.Link>
-              <Nav.Link href="/estancia-turistica">Estancia turística</Nav.Link>
-              <Nav.Link href="#action2">Expectativas turísticas</Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/gasto-turistico"
+                className={activeLink === "/gasto-turistico" ? "active" : ""}
+              >
+                Gasto turístico
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/estancia-turistica"
+                className={activeLink === "/estancia-turistica" ? "active" : ""}
+              >
+                Estancia turística
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/expectativas-turisticas"
+                className={
+                  activeLink === "/expectativas-turisticas" ? "active" : ""
+                }
+              >
+                Expectativas turísticas
+              </Nav.Link>
             </Nav>
           </Container>
         </Container>

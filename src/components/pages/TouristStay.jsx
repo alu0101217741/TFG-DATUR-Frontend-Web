@@ -1,5 +1,23 @@
 import React from "react";
+import Breadcrumb from "../Breadcrumb";
+import SectionMainNavbar from "../SectionMainNavbar";
+import SectionNavbar from "../SectionNavbar";
+import TouristStayContent from "../touristStay/TouristStayContent";
+import TouristStayGraph from "../touristStay/TouristStayGraph";
+import TouristStayTitle from "../touristStay/TouristStayTitle";
 
 export default function TouristStay() {
-  return <h1 className="touristStay">Tourist Stay</h1>;
+  return (
+    <div>
+      <SectionMainNavbar />
+      <SectionNavbar activeLink="/estancia-turistica" />
+      <TouristStayTitle />
+      <Breadcrumb
+        breadcrumItem={"ESTANCIA TURÍSTICA"}
+        breadcrumItemLink={"/estancia-turistica"}
+      />
+      <TouristStayContent />
+      <TouristStayGraph />
+    </div>
+  );
 }

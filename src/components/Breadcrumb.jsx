@@ -4,7 +4,7 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { FaHome } from "react-icons/fa";
 import "./Breadcrumb.css";
 
-function BreadCrumb() {
+function BreadCrumb({ breadcrumItem, breadcrumItemLink }) {
   return (
     <div>
       <Container className="mt-5">
@@ -12,8 +12,8 @@ function BreadCrumb() {
           <Breadcrumb.Item href="/">
             <FaHome className="home-icon" /> INICIO
           </Breadcrumb.Item>
-          <Breadcrumb.Item href="/numero-de-turistas-y-nacionalidades" active>
-            NÚMERO DE TURISTAS Y NACIONALIDADES
+          <Breadcrumb.Item href={breadcrumItemLink} active>
+            {breadcrumItem}
           </Breadcrumb.Item>
         </Breadcrumb>
       </Container>

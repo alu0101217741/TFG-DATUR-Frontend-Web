@@ -1,5 +1,5 @@
 import React from "react";
-import ".//TouristNumberAndNationalitiesTitle.css";
+import "./TouristNumberAndNationalitiesTitle.css";
 
 function TouristNumberAndNationalitiesTitle() {
   return (
