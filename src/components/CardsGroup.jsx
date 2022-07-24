@@ -13,7 +13,7 @@ function CardsGroup() {
               src="images/touristNumberAndNationalities.jpg"
               title="Número turistas y nacionalidades"
               text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
-              label="Instituto Nacional de Estadística"
+              label="Instituto Canario de Estadística"
               details="Actualización estimada de los datos: mensual"
               path="/numero-de-turistas-y-nacionalidades"
             />
@@ -21,7 +21,7 @@ function CardsGroup() {
               src="images/tourist-spending.jpg"
               title="Gasto turístico"
               text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
-              label="Instituto Nacional de Estadística"
+              label="Instituto Canario de Estadística"
               details="Actualización estimada de los datos: mensual"
               path="/services"
             />
@@ -31,15 +31,15 @@ function CardsGroup() {
               src="images/touristStay.jpg"
               title="Estancia turística"
               text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
-              label="Instituto Nacional de Estadística"
+              label="Instituto Canario de Estadística"
               details="Actualización estimada de los datos: mensual"
-              path="/services"
+              path="/estancia-turistica"
             />
             <Card
               src="images/touristNumberAndNationalities.jpg"
               title="Expectativas turísticas"
               text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
-              label="Instituto Nacional de Estadística"
+              label="Instituto Canario de Estadística"
               details="Actualización estimada de los datos: mensual"
               path="/products"
             />

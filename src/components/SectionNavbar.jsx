@@ -19,8 +19,8 @@ function SectionNavbar() {
               <Nav.Link href="/numero-de-turistas-y-nacionalidades">
                 Número de turistas y nacionalidades
               </Nav.Link>
-              <Nav.Link href="#action2">Gasto turístico</Nav.Link>
-              <Nav.Link href="#action2">Estancia turística</Nav.Link>
+              <Nav.Link href="/gasto-turistico">Gasto turístico</Nav.Link>
+              <Nav.Link href="/estancia-turistica">Estancia turística</Nav.Link>
               <Nav.Link href="#action2">Expectativas turísticas</Nav.Link>
             </Nav>
           </Container>

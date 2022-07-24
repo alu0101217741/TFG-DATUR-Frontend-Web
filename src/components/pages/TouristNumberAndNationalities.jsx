@@ -3,6 +3,7 @@ import Breadcrumb from "../Breadcrumb";
 import SectionMainNavbar from "../SectionMainNavbar";
 import SectionNavbar from "../SectionNavbar";
 import TouristNumberAndNationalitiesContent from "../TouristNumberAndNationalitiesContent";
+import TouristNumberAndNationalitiesGraph from "../TouristNumberAndNationalitiesGraph";
 import TouristNumberAndNationalitiesTitle from "../TouristNumberAndNationalitiesTitle";
 
 export default function TouristNumberAndNationalities() {
@@ -13,6 +14,7 @@ export default function TouristNumberAndNationalities() {
       <TouristNumberAndNationalitiesTitle />
       <Breadcrumb />
       <TouristNumberAndNationalitiesContent />
+      <TouristNumberAndNationalitiesGraph />
     </div>
   );
 }

@@ -16,7 +16,7 @@ function App() {
             path="/numero-de-turistas-y-nacionalidades"
             element={<TouristNumberAndNationalities />}
           />
-          <Route path="/tourist-stay" element={<TouristStay />} />
+          <Route path="/estancia-turistica" element={<TouristStay />} />
           <Route path="/tourist-spending" element={<TouristSpending />} />
           <Route
             path="/tourist-expectations"
