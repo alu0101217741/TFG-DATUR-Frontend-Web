@@ -23,7 +23,7 @@ function CardsGroup() {
               text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
               label="Instituto Canario de Estadística"
               details="Actualización estimada de los datos: mensual"
-              path="/services"
+              path="/gasto-turistico"
             />
           </ul>
           <ul className="cards-items">

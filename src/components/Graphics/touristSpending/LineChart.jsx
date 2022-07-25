@@ -10,14 +10,14 @@ function LineChart({ data }) {
       shadow: true,
     },
     title: {
-      text: "Evolución de la estancia media de turistas",
+      text: "Evolución del gasto turístico",
     },
     subtitle: {
       text: "Fuente: Instituto Canario de Estadística",
     },
     yAxis: {
       title: {
-        text: "Estancia media",
+        text: "Gasto total",
       },
     },
     plotOptions: {
@@ -31,7 +31,13 @@ function LineChart({ data }) {
 
   useEffect(() => {
     const dataYears = data.reverse().map((item) => item.year);
-    const dataValues = data.reverse().map((item) => item.averageStay);
+    const dataValues = data.map((item) => {
+      let totalYear = 0;
+      item.data.forEach((element) => {
+        totalYear += element.totalSpending;
+      });
+      return Math.trunc(totalYear);
+    });
 
     setChartOptions({
       xAxis: {
@@ -39,7 +45,7 @@ function LineChart({ data }) {
       },
       series: [
         {
-          name: "Estancia media",
+          name: "Gasto total",
           data: dataValues,
         },
       ],
@@ -51,15 +57,13 @@ function LineChart({ data }) {
       <Container className="mt-4">
         <h3>Estancia media de los turistas por año</h3>
         <Container>
-          <Container>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </p>
-            <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-          </Container>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+          <HighchartsReact highcharts={Highcharts} options={chartOptions} />
         </Container>
       </Container>
     </div>
