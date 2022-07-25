@@ -18,6 +18,7 @@ export default function TouristSpending() {
       />
       <TouristSpendingContent />
       <TouristSpendingGraph />
+      <h1>Añadir lo de gasto por nacionalidad</h1>
     </div>
   );
 }
