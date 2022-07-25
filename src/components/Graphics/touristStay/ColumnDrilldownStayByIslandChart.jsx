@@ -150,7 +150,6 @@ function ColumnDrilldownStayByIslandChart({ data }) {
     setActiveYear(year);
 
     const indexActualYear = years.indexOf(year);
-    const indexPreviousYear = indexActualYear + 1;
 
     const mainData = dataSelected[indexActualYear].stayByIsland.map(
       (element) => {
@@ -162,7 +161,7 @@ function ColumnDrilldownStayByIslandChart({ data }) {
       }
     );
 
-    const secondaryData = dataSelected[indexPreviousYear].stayByIsland.map(
+    const secondaryData = dataSelected[indexActualYear].stayByIsland.map(
       (element) => {
         return {
           name: element.island,
