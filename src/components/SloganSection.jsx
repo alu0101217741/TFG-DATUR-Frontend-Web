@@ -7,7 +7,7 @@ function SloganSection() {
       <video src="/videos/sloganVideo.mp4" autoPlay loop muted />
       <h1>El turismo de Canarias en datos</h1>
       <p>
-        Informáte sobre los últimos datos relacionado con el turismo en las
+        Informáte sobre los últimos datos relacionados con el turismo en las
         islas
       </p>
     </div>

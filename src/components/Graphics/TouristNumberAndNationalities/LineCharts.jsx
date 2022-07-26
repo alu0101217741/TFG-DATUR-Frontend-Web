@@ -30,6 +30,11 @@ function LineCharts({ data }) {
       verticalAlign: "middle",
     },
     plotOptions: {
+      line: {
+        dataLabels: {
+          enabled: true,
+        },
+      },
       series: {
         label: {
           connectorAllowed: false,
@@ -74,10 +79,10 @@ function LineCharts({ data }) {
         <h3>Número total de turistas por año</h3>
         <Container>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            Como primera gráfica se muestra la evolución del número de turistas
+            a lo largo de los años, se puedo observar que este número ha
+            aumentado progresivamente. Destaca el descenso que se produce en el
+            año 2020 debido a la pandemia del COVID-19.
           </p>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />
         </Container>

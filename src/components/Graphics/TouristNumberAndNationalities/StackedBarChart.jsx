@@ -94,56 +94,6 @@ function StackedBarChart({ data }) {
 
     const fourthTrimester = firstData.map((item) => item.fourthTrimester);
 
-    /*
-    console.log(data);
-
-    const dataFiltered = data.filter((item) => item.year === 2018);
-
-    const dataSortedNumberTourist =
-      dataFiltered[0].touristsByCountryAndTrimester
-        .sort(compare)
-        .filter((item) => item.country !== "Otros países");
-
-    const countries = dataSortedNumberTourist.map((item) => item.country);
-
-    const firstTrimester = dataSortedNumberTourist.map(
-      (item) => item.firstTrimester
-    );
-
-    const secondTrimester = dataSortedNumberTourist.map(
-      (item) => item.secondTrimester
-    );
-
-    const thirdTrimester = dataSortedNumberTourist.map(
-      (item) => item.thirdTrimester
-    );
-
-    const fourthTrimester = dataSortedNumberTourist.map(
-      (item) => item.fourthTrimester
-    );*/
-
-    /*const firstData = formattedDataAux.filter((item) => item.year === 2018));
-
-    firstData.map((item) => console.log(item.country));*/
-
-    // console.log(countries);
-
-    /* const firstTrimester = formattedDataAux[0].map(
-      (item) => item.firstTrimester
-    );
-
-    const secondTrimester = formattedDataAux[0].map(
-      (item) => item.secondTrimester
-    );
-
-    const thirdTrimester = formattedDataAux[0].map(
-      (item) => item.thirdTrimester
-    );
-
-    const fourthTrimester = formattedDataAux[0].map(
-      (item) => item.fourthTrimester
-    );*/
-
     setChartOptions({
       title: {
         text: `Rankings de nacionalidades en ${years[0]}`,
@@ -171,48 +121,6 @@ function StackedBarChart({ data }) {
       ],
     });
   }, [data]);
-
-  /*const paintChart = (data) => {
-    const countries = data.map((item) => item.country);
-
-    const firstTrimester = data.map((item) => item.firstTrimester);
-
-    const secondTrimester = data.map((item) => item.secondTrimester);
-
-    const thirdTrimester = data.map((item) => item.thirdTrimester);
-
-    const fourthTrimester = data.map((item) => item.fourthTrimester);
-
-    const result = {
-      xAxis: {
-        categories: countries.flat(), // Countries
-      },
-      series: [
-        {
-          name: "Cuarto trimestre",
-          data: fourthTrimester.flat(),
-        },
-        {
-          name: "Tercer trimestre",
-          data: thirdTrimester.flat(),
-        },
-        {
-          name: "Segundo trimestre",
-          data: secondTrimester.flat(),
-        },
-        {
-          name: " Primer trimestre",
-          data: firstTrimester.flat(),
-        },
-      ],
-    };
-
-    return result;
-  };*/
-
-  /*const updateChart = (year) => {
-    console.log("");
-  };*/
 
   const updateChartWithYear = (year) => {
     setActiveYear(year);
@@ -259,10 +167,13 @@ function StackedBarChart({ data }) {
         <h3>Nacionalidades que visitan Canarias</h3>
         <Container>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            En esta gráfica se refleja bastante información acerca de las
+            nacionalidades que visitan Canarias. Se encuentran disponibles los
+            últimos cuatro últimos años de los que se tienen datos, para estos
+            años se muestra el ranking de las nacionalidades que visitan las
+            islas, para cada una de las nacionalidades se refleja el número de
+            turistas por cada trimestre, lo que hace posible conocer la
+            distribución de los turistas a lo largo del año.
           </p>
           <ButtonGroup
             aria-label="Years to be paint in the graph"

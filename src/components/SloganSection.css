@@ -21,6 +21,7 @@ video {
   font-size: 60px;
   align-content: center;
   text-align: center;
+  text-shadow: 0.06em 0 black;
 }
 
 .slogan-container p {
@@ -29,6 +30,7 @@ video {
   color: rgb(255, 255, 255);
   font-family: "PT Sans", sans-serif;
   text-align: center;
+  text-shadow: 0.06em 0 black;
 }
 
 @media screen and (max-width: 960px) {
