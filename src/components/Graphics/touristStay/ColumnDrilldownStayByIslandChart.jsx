@@ -200,10 +200,9 @@ function ColumnDrilldownStayByIslandChart({ data }) {
             and scrambled it to make a type specimen book.
           </p>
           <DropdownButton
-            alignRight
             title={activeYear}
-            id="dropdown-menu-align-left"
             onSelect={handleSelect}
+            className="dropdown-button-center"
           >
             {years.map((year) => (
               <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>

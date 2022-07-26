@@ -233,10 +233,9 @@ function ColumnComparisonChart({ data }) {
               type and scrambled it to make a type specimen book.
             </p>
             <DropdownButton
-              alignRight
               title={activeYear}
-              id="dropdown-menu-align-right"
               onSelect={handleSelect}
+              className="dropdown-button-center"
             >
               {years.map((year) => (
                 <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>

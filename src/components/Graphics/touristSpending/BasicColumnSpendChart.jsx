@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import "./BasicColumnSpendChart.css";
 
 function dataMapping(data) {
   const valuesAux = {
@@ -78,20 +79,6 @@ function BasicColumnSpendChart({ data }) {
 
     const value = dataMapping(firstData);
 
-    /*console.log(firstData);
-    let aux = [];
-    const dataValue = firstData.map((item) => {
-      item.data[0].spendingByConcept.forEach((element) => {
-        aux.push([element.concept, element.totalSpending]);
-      });
-      return aux;
-    });*/
-
-    /*let values = [];
-    data[0].data[0].spendingByConcept.forEach((item) => {
-      values.push([item.concept, item.totalSpending]);
-    });:*/
-
     setChartOptions({
       title: {
         text: `Desglose de gasto en ${dataYears[0]}`,
@@ -137,10 +124,9 @@ function BasicColumnSpendChart({ data }) {
             and scrambled it to make a type specimen book.
           </p>
           <DropdownButton
-            alignRight
             title={activeYear}
-            id="dropdown-menu-align-left"
             onSelect={handleSelect}
+            className="dropdown-button-center"
           >
             {years.map((year) => (
               <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
