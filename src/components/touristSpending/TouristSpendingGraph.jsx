@@ -15,7 +15,7 @@ function TouristSpendingGraph() {
 
   return (
     <div>
-      <Container className="mt-4">
+      <Container className="mt-4 graph-container">
         <h2 className="section-title">Visualización de los datos</h2>
         <Container>
           <LineChart data={[...data]} />

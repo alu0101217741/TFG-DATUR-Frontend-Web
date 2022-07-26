@@ -1,5 +1,6 @@
 import React from "react";
 import Breadcrumb from "../Breadcrumb";
+import Footer from "../Footer";
 import SectionMainNavbar from "../SectionMainNavbar";
 import SectionNavbar from "../SectionNavbar";
 import TouristStayContent from "../touristStay/TouristStayContent";
@@ -18,6 +19,7 @@ export default function TouristStay() {
       />
       <TouristStayContent />
       <TouristStayGraph />
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Breadcrumb from "../Breadcrumb";
+import Footer from "../Footer";
 import SectionMainNavbar from "../SectionMainNavbar";
 import SectionNavbar from "../SectionNavbar";
 import TouristSpendingContent from "../touristSpending/TouristSpendingContent";
@@ -19,6 +20,7 @@ export default function TouristSpending() {
       <TouristSpendingContent />
       <TouristSpendingGraph />
       <h1>Añadir lo de gasto por nacionalidad</h1>
+      <Footer />
     </div>
   );
 }

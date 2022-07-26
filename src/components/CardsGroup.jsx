@@ -36,7 +36,7 @@ function CardsGroup() {
               path="/estancia-turistica"
             />
             <Card
-              src="images/touristNumberAndNationalities.jpg"
+              src="images/img-header-energy-data.png"
               title="Expectativas turísticas"
               text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
               label="Instituto Canario de Estadística"

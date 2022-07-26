@@ -1,5 +1,5 @@
 import React from "react";
-import "./TouristSpending.css";
+import "./TouristSpendingTitle.css";
 
 function TouristSpendingTitle() {
   return (

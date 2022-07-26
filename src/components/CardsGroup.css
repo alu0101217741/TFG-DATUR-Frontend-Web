@@ -1,9 +1,9 @@
 .cards {
-  padding: 3rem;
   background: #fff;
 }
 
 .cards h1 {
+  padding-top: 3rem;
   font-size: 45px;
   text-align: center;
   color: rgba(0, 52, 89);
@@ -13,7 +13,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1300px;
   width: 90%;
   margin: 0 auto;
 }
@@ -127,5 +127,41 @@
 @media only screen and (max-width: 1024px) {
   .cards-item {
     margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .cards h1 {
+    font-size: 40px;
+  }
+  .cards-wrapper {
+    margin: 40px 0 40px;
+  }
+  .cards-item-pic-wrap::after {
+    font-size: 20px;
+  }
+  .cards-item {
+    margin: 1em 3em 0em 3em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cards h1 {
+    font-size: 30px;
+  }
+  .cards-wrapper {
+    margin: 30px 0 30px;
+  }
+  .cards-item-pic-wrap::after {
+    font-size: 15px;
+  }
+  .cards-item {
+    margin: 1em 1em 0em 0em;
+  }
+  .cards-item h2 {
+    font-size: 20px;
+  }
+  .cards-item p {
+    font-size: 15px;
   }
 }

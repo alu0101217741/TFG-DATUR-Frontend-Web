@@ -1,5 +1,5 @@
-.tourist-number-nationalities-container {
-  background: url("../../../public/images/numberTouristTitle.jpg") center
+.tourist-spending-container {
+  background: url("../../../public/images/touristSpending.jpg") center
     center/cover no-repeat;
   color: #fff;
   height: 30vh;
@@ -12,24 +12,24 @@
   object-fit: contain;
 }
 
-.tourist-number-nationalities-container h1 {
-  font-size: 50px;
+.tourist-spending-container h1 {
+  font-size: 60px;
   text-shadow: 0.05em 0 black;
   text-align: center;
 }
 
 @media screen and (max-width: 960px) {
-  .tourist-number-nationalities-container {
+  .tourist-spending-container {
     height: 20vh;
   }
 
-  .tourist-number-nationalities-container h1 {
-    font-size: 50px;
+  .tourist-spending-container h1 {
+    font-size: 60px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .tourist-number-nationalities-container h1 {
-    font-size: 30px;
+  .tourist-spending-container h1 {
+    font-size: 40px;
   }
 }

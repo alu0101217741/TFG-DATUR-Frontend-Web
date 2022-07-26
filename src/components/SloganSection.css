@@ -19,6 +19,8 @@ video {
 .slogan-container h1 {
   color: rgb(255, 255, 255);
   font-size: 60px;
+  align-content: center;
+  text-align: center;
 }
 
 .slogan-container p {
@@ -26,16 +28,31 @@ video {
   margin-top: 20px;
   color: rgb(255, 255, 255);
   font-family: "PT Sans", sans-serif;
+  text-align: center;
 }
 
 @media screen and (max-width: 960px) {
-  h1 {
+  .slogan-container h1 {
     font-size: 50px;
+  }
+  .slogan-container p {
+    font-size: 20px;
+    margin: 3px;
+  }
+  .slogan-container {
+    height: 40vh;
   }
 }
 
 @media screen and (max-width: 768px) {
-  h1 {
-    font-size: 40px;
+  .slogan-container h1 {
+    font-size: 30px;
+  }
+  .slogan-container p {
+    font-size: 15px;
+    margin: 3px;
+  }
+  .slogan-container {
+    height: 30vh;
   }
 }

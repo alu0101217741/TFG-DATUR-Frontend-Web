@@ -10,7 +10,12 @@ function SectionMainNavbar() {
   return (
     <>
       <div className="d-none d-lg-block">
-        <Navbar clasName="navbar-bg" key="lg" expand="lg">
+        <Navbar
+          clasName="navbar-bg sticky-nav"
+          key="lg"
+          expand="lg"
+          sticky="top"
+        >
           <Container>
             <Navbar.Brand className="navbar-name" href="/">
               Turismo

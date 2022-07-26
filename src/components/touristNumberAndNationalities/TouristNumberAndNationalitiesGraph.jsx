@@ -4,6 +4,7 @@ import { getDataFromApi } from "../../services/getDataFromApi";
 import BasicBar from "../Graphics/TouristNumberAndNationalities/BasicBar";
 import LineCharts from "../Graphics/TouristNumberAndNationalities/LineCharts";
 import StackedBarChart from "../Graphics/TouristNumberAndNationalities/StackedBarChart";
+import "./TouristNumberAndNationalitiesGraph.css";
 
 function TouristNumberAndNationalitiesGraph() {
   const [data, setData] = useState([]);
@@ -14,7 +15,7 @@ function TouristNumberAndNationalitiesGraph() {
 
   return (
     <div>
-      <Container className="mt-4">
+      <Container className="mt-4 graph-container">
         <h2 className="section-title">Visualización de los datos</h2>
         <Container>
           <LineCharts data={[...data]} />

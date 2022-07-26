@@ -1,5 +1,6 @@
 import React from "react";
 import Breadcrumb from "../Breadcrumb";
+import Footer from "../Footer";
 import SectionMainNavbar from "../SectionMainNavbar";
 import SectionNavbar from "../SectionNavbar";
 import TouristNumberAndNationalitiesContent from "../touristNumberAndNationalities/TouristNumberAndNationalitiesContent";
@@ -18,6 +19,7 @@ export default function TouristNumberAndNationalities() {
       />
       <TouristNumberAndNationalitiesContent />
       <TouristNumberAndNationalitiesGraph />
+      <Footer />
     </div>
   );
 }
