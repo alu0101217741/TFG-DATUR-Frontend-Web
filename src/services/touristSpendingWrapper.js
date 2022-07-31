@@ -1,4 +1,4 @@
-export function touristStayWrapper(data) {
+export function touristSpendingWrapper(data) {
   const years = [];
 
   data.forEach((item) => {

@@ -11,7 +11,7 @@ function SectionMainNavbar() {
     <>
       <div className="d-none d-lg-block">
         <Navbar
-          clasName="navbar-bg sticky-nav"
+          className="navbar-bg sticky-nav"
           key="lg"
           expand="lg"
           sticky="top"

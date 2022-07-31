@@ -19,7 +19,7 @@ function App() {
           <Route path="/estancia-turistica" element={<TouristStay />} />
           <Route path="/gasto-turistico" element={<TouristSpending />} />
           <Route
-            path="/tourist-expectations"
+            path="/expectativas-turisticas"
             element={<TouristExpectations />}
           />
           <Route path="*" element={<Home />} />

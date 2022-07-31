@@ -1,10 +1,13 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import highcharts3d from "highcharts/highcharts-3d";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./BasicColumnSpendChart.css";
+
+highcharts3d(Highcharts);
 
 function dataMapping(data) {
   const valuesAux = {
@@ -61,8 +64,19 @@ function BasicColumnSpendChart({ data }) {
   const [chartOptions, setChartOptions] = useState({
     chart: {
       type: "pie",
-
       shadow: true,
+      options3d: {
+        enabled: true,
+        alpha: 45,
+        beta: 0,
+      },
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        depth: 35,
+      },
     },
   });
 
