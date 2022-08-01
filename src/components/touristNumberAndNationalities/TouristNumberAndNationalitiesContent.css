@@ -1,3 +1,5 @@
 .section-title {
-  color: rgb(0, 126, 167);
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 45px;
 }

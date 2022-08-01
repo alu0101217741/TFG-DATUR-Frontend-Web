@@ -18,19 +18,23 @@ video {
 
 .slogan-container h1 {
   color: rgb(255, 255, 255);
-  font-size: 60px;
+  font-size: 75px;
   align-content: center;
   text-align: center;
   text-shadow: 0.06em 0 black;
+  font-family: "Oswald";
+  font-weight: 600;
 }
 
 .slogan-container p {
-  font-size: 25px;
+  font-size: 30px;
   margin-top: 20px;
   color: rgb(255, 255, 255);
   font-family: "PT Sans", sans-serif;
   text-align: center;
   text-shadow: 0.06em 0 black;
+  font-family: "Oswald";
+  font-weight: 600;
 }
 
 @media screen and (max-width: 960px) {

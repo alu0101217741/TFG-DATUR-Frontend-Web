@@ -1,5 +1,5 @@
 .tourist-expectations-container {
-  background: url("../../../public/images/numberTouristTitle.jpg") center
+  background: url("../../../public/images/touristExpectations.jpg") center
     center/cover no-repeat;
   color: #fff;
   height: 30vh;
@@ -13,9 +13,11 @@
 }
 
 .tourist-expectations-container h1 {
-  font-size: 50px;
+  font-size: 60px;
   text-shadow: 0.05em 0 black;
   text-align: center;
+  font-family: "Oswald";
+  font-weight: 600;
 }
 
 @media screen and (max-width: 960px) {
