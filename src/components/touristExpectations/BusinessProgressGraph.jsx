@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { getDataFromApi } from "../../services/getDataFromApi";
 import SemiCircleDonutChartBussinesChart from "../Graphics/touristExpectations/SemiCircleDonutChartBussinesChart";
+import SemiCircleDonutChartMainFactorsChart from "../Graphics/touristExpectations/SemiCircleDonutChartMainFactorsChart";
 
 function BusinessProgressGraph() {
   const [data, setData] = useState([]);
@@ -16,6 +17,7 @@ function BusinessProgressGraph() {
       <Container className="mt-4 graph-container">
         <Container>
           <SemiCircleDonutChartBussinesChart data={[...data]} />
+          <SemiCircleDonutChartMainFactorsChart data={[...data]} />
         </Container>
       </Container>
     </div>

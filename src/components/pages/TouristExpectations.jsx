@@ -1,5 +1,6 @@
 import React from "react";
 import Breadcrumb from "../Breadcrumb";
+import Footer from "../Footer";
 import SectionMainNavbar from "../SectionMainNavbar";
 import SectionNavbar from "../SectionNavbar";
 import BusinessProgressGraph from "../touristExpectations/BusinessProgressGraph";
@@ -20,6 +21,7 @@ export default function TouristExpectations() {
       <TouristExpectationsContent />
       <OccupancyRateForecastGraph />
       <BusinessProgressGraph />
+      <Footer />
     </div>
   );
 }

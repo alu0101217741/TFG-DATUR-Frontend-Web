@@ -44,7 +44,7 @@ function SemiCircleDonutChartBussinesChart({ data }) {
       shadow: true,
     },
     title: {
-      text: "Expectativas<br>tendencia<br>marcha del<br>negocio",
+      text: "Expectativas<br>tendencia marcha<br> del negocio",
       align: "center",
       verticalAlign: "middle",
       y: 60,
@@ -120,8 +120,6 @@ function SemiCircleDonutChartBussinesChart({ data }) {
 
   useEffect(() => {
     if (data.length !== 0) {
-      console.log(data);
-
       const dataSelected = data[0];
 
       const previousTrimester = trimesterMapper(dataSelected.trimester);

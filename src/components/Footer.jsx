@@ -41,6 +41,15 @@ function Footer() {
                   Instituto Canario de Estadística
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.highcharts.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Highcharts
+                </a>
+              </li>
             </ul>
           </Col>
           <Col lg={4} xs={12} className="footer-links">
