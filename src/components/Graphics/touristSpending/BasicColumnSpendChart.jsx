@@ -129,8 +129,8 @@ function BasicColumnSpendChart({ data }) {
   return (
     <div>
       <Container className="mt-4">
+        <h3>Gasto turístico incluyendo desglose de gasto</h3>
         <Container>
-          <h3>Gasto turístico incluyendo desglose de gasto</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

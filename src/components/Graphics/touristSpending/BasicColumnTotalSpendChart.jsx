@@ -3,10 +3,23 @@ import HighchartsReact from "highcharts-react-official";
 import highcharts3d from "highcharts/highcharts-3d";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 highcharts3d(Highcharts);
 
+const TimeOption = {
+  YEAR: "Año",
+  MONTH: "Trimestre",
+};
+
 function BasicColumnTotalSpendChart({ data }) {
+  const [timeOption, setTimeOption] = useState();
+
+  const [trimestralData, setTrimestralData] = useState([]);
+
+  const [annualData, setAnnualData] = useState([]);
+
   const [chartOptions, setChartOptions] = useState({
     chart: {
       type: "column",
@@ -84,13 +97,50 @@ function BasicColumnTotalSpendChart({ data }) {
       });
     });
 
+    setTrimestralData(values);
+
+    setTimeOption(TimeOption.YEAR);
+
+    const yearsValues = [0, 0, 0, 0, 0];
+
+    for (const value of values) {
+      yearsValues[0] += value.data[0] || 0;
+      yearsValues[1] += value.data[1] || 0;
+      yearsValues[2] += value.data[2] || 0;
+      yearsValues[3] += value.data[3] || 0;
+      yearsValues[4] += value.data[4] || 0;
+    }
+
+    const annualDataValues = [
+      {
+        name: "Gasto total",
+        data: yearsValues,
+      },
+    ];
+
+    setAnnualData(annualDataValues);
+
     setChartOptions({
       xAxis: {
         categories: dataYears.reverse(),
       },
-      series: values,
+      series: annualDataValues,
     });
   }, [data]);
+
+  const handleSelect = (timeOption) => {
+    setTimeOption(timeOption);
+
+    let values = trimestralData;
+
+    if (timeOption === TimeOption.YEAR) {
+      values = annualData;
+    }
+
+    setChartOptions({
+      series: values,
+    });
+  };
 
   return (
     <div>
@@ -102,6 +152,18 @@ function BasicColumnTotalSpendChart({ data }) {
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book.
           </p>
+          <DropdownButton
+            title={timeOption}
+            onSelect={handleSelect}
+            className="dropdown-button-center"
+          >
+            <Dropdown.Item eventKey={TimeOption.YEAR}>
+              {TimeOption.YEAR}
+            </Dropdown.Item>
+            <Dropdown.Item eventKey={TimeOption.MONTH}>
+              {TimeOption.MONTH}
+            </Dropdown.Item>
+          </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />
         </Container>
       </Container>
