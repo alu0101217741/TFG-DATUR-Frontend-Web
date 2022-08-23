@@ -20,7 +20,7 @@ function TouristSpendingGraph() {
         <Container>
           <LineChart data={[...data]} />
           <Container className="mt-4">
-            <h3>Gasto turístico en Canarias por trimestre</h3>
+            <h3>Gasto turístico por año y trimestre</h3>
             <BasicColumnTotalSpendChart data={[...data]} />
             <BasicColumnAverageSpendChart data={[...data]} />
             <BasicColumnSpendChart data={[...data]} />

@@ -55,7 +55,7 @@ function LineChart({ data }) {
   return (
     <div>
       <Container className="mt-4">
-        <h3>Estancia media de los turistas por año</h3>
+        <h3>Evolución del gasto turístico</h3>
         <Container>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
