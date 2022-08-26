@@ -1,0 +1,17 @@
+.section-title {
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 45px;
+}
+
+@media screen and (max-width: 960px) {
+  .section-title {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+}

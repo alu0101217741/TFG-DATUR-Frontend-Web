@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { getDataFromApi } from "../../services/getDataFromApi";
-import BasicBar from "../Graphics/TouristNumberAndNationalities/BasicBar";
-import LineCharts from "../Graphics/TouristNumberAndNationalities/LineCharts";
-import StackedBarChart from "../Graphics/TouristNumberAndNationalities/StackedBarChart";
-import "./TouristNumberAndNationalitiesGraph.css";
+import BasicBar from "../Graphics/touristNumber/BasicBar";
+import LineCharts from "../Graphics/touristNumber/LineCharts";
+import StackedBarChart from "../Graphics/touristNumber/StackedBarChart";
+import "./TouristNumberGraph.css";
 
-function TouristNumberAndNationalitiesGraph() {
+function TouristNumberGraph() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -27,4 +27,4 @@ function TouristNumberAndNationalitiesGraph() {
   );
 }
 
-export default TouristNumberAndNationalitiesGraph;
+export default TouristNumberGraph;

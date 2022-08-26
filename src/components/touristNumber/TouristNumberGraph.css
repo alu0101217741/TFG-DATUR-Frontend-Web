@@ -1,0 +1,22 @@
+.graph-container {
+  margin-bottom: 4em;
+}
+
+h3 {
+  color: rgb(0, 126, 167);
+  font-family: "Oswald";
+  font-weight: 600;
+  font-size: 35px;
+}
+
+@media screen and (max-width: 960px) {
+  h3 {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 25px;
+  }
+}

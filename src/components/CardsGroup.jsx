@@ -10,7 +10,7 @@ function CardsGroup() {
         <div className="cards-wrapper">
           <ul className="cards-items">
             <Card
-              src="images/touristNumberAndNationalities.jpg"
+              src="images/touristNumber.jpg"
               title="Número de turistas"
               text="Conoce el número de turistas que visitan las Islas Canarias, incluyendo su evolución, nacionalidades y distribución por islas."
               label="Instituto Canario de Estadística"

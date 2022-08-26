@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./components/pages/Home";
 import TouristExpectations from "./components/pages/TouristExpectations";
-import TouristNumberAndNationalities from "./components/pages/TouristNumberAndNationalities";
+import TouristNumber from "./components/pages/TouristNumber";
 import TouristSpending from "./components/pages/TouristSpending";
 import TouristStay from "./components/pages/TouristStay";
 
@@ -12,10 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route
-            path="/numero-de-turistas"
-            element={<TouristNumberAndNationalities />}
-          />
+          <Route path="/numero-de-turistas" element={<TouristNumber />} />
           <Route path="/estancia-turistica" element={<TouristStay />} />
           <Route path="/gasto-turistico" element={<TouristSpending />} />
           <Route

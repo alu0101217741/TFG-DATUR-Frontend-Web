@@ -1,7 +1,7 @@
 import React from "react";
-import "./TouristNumberAndNationalitiesTitle.css";
+import "./TouristNumberTitle.css";
 
-function TouristNumberAndNationalitiesTitle() {
+function TouristNumberTitle() {
   return (
     <div className="tourist-number-nationalities-container">
       <h1>Número de turistas</h1>
@@ -9,4 +9,4 @@ function TouristNumberAndNationalitiesTitle() {
   );
 }
 
-export default TouristNumberAndNationalitiesTitle;
+export default TouristNumberTitle;

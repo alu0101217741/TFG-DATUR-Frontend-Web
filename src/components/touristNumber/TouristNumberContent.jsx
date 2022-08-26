@@ -1,8 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import "./TouristNumberAndNationalitiesContent.css";
+import "./TouristNumberContent.css";
 
-function TouristNumberAndNationalities() {
+function TouristNumber() {
   return (
     <div>
       <Container className="mt-4">
@@ -41,4 +41,4 @@ function TouristNumberAndNationalities() {
   );
 }
 
-export default TouristNumberAndNationalities;
+export default TouristNumber;
