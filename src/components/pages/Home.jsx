@@ -7,7 +7,7 @@ import SloganSection from "../SloganSection";
 function Home() {
   return (
     <>
-      <SectionMainNavbar />
+      <SectionMainNavbar activeLink={"/"} />
       <SloganSection />
       <CardsGroup />
       <Footer />

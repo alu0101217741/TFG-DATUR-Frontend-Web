@@ -1,49 +1,26 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
+import { Container } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { CustomButton } from "./CustomButton";
+import {
+  BsFillBarChartFill,
+  BsFillBarChartLineFill,
+  BsGraphUp,
+  BsPieChartFill,
+} from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./SectionMainNavbar.css";
 
-function SectionMainNavbar() {
+function SectionMainNavbar({ activeLink }) {
   return (
     <>
       <div className="d-none d-lg-block">
-        <Navbar
-          className="navbar-bg sticky-nav"
-          key="lg"
-          expand="lg"
-          sticky="top"
-        >
-          <Container>
-            <Navbar.Brand className="navbar-name" href="/">
-              Turismo
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" />
-            <Navbar.Offcanvas
-              id="offcanvasNavbar-expand-lg"
-              aria-labelledby="offcanvasNavbarLabel-expand-lg"
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title
-                  className="mobile-menu"
-                  id="offcanvasNavbarLabel-expand-lg"
-                >
-                  Secciones
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link className="nav-section" href="#action1">
-                    ¿Quiénes somos?
-                  </Nav.Link>
-                  <CustomButton buttonStyle="btn--outline">Ayuda</CustomButton>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
+        <Navbar key="lg" expand="lg">
+          <Navbar.Brand className="navbar-name" href="/">
+            Turismo
+          </Navbar.Brand>
         </Navbar>
       </div>
       <div className="d-lg-none">
@@ -63,19 +40,69 @@ function SectionMainNavbar() {
                   className="mobile-menu"
                   id="offcanvasNavbarLabel-expand-lg"
                 >
-                  Secciones
+                  Turismo
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">
-                    Número de turistas y nacionalidades
+                  <Nav.Link
+                    as={Link}
+                    to="/"
+                    className={
+                      activeLink === "/"
+                        ? "section-name active-background"
+                        : "section-name"
+                    }
+                  >
+                    <FaHome className="custom-icon" /> Inicio
                   </Nav.Link>
-                  <Nav.Link href="#action1">Gasto turístico</Nav.Link>
-                  <Nav.Link href="#action1">Estancia turística</Nav.Link>
-                  <Nav.Link href="#action1">Expectativas turísticas</Nav.Link>
-                  <Nav.Link href="#action1">¿Quiénes somos?</Nav.Link>
-                  <Nav.Link href="#action1">Ayuda</Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    to="/numero-de-turistas-y-nacionalidades"
+                    className={
+                      activeLink === "/numero-de-turistas-y-nacionalidades"
+                        ? "section-name active-background"
+                        : "section-name"
+                    }
+                  >
+                    <BsGraphUp className="custom-icon" /> Número de turistas
+                  </Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    to="/gasto-turistico"
+                    className={
+                      activeLink === "/gasto-turistico"
+                        ? "section-name active-background"
+                        : "section-name"
+                    }
+                  >
+                    <BsFillBarChartLineFill className="custom-icon" />
+                    Gasto turístico
+                  </Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    to="/estancia-turistica"
+                    className={
+                      activeLink === "/estancia-turistica"
+                        ? "section-name active-background"
+                        : "section-name"
+                    }
+                  >
+                    <BsPieChartFill className="custom-icon" />
+                    Estancia turística
+                  </Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    to="/expectativas-turisticas"
+                    className={
+                      activeLink === "/expectativas-turisticas"
+                        ? "section-name active-background"
+                        : "section-name"
+                    }
+                  >
+                    <BsFillBarChartFill className="custom-icon" /> Expectativas
+                    turísticas
+                  </Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

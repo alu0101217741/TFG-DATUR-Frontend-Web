@@ -10,7 +10,7 @@ import TouristNumberAndNationalitiesTitle from "../touristNumberAndNationalities
 export default function TouristNumberAndNationalities() {
   return (
     <div>
-      <SectionMainNavbar />
+      <SectionMainNavbar activeLink={"/numero-de-turistas-y-nacionalidades"} />
       <SectionNavbar activeLink="/numero-de-turistas-y-nacionalidades" />
       <TouristNumberAndNationalitiesTitle />
       <Breadcrumb

@@ -11,7 +11,7 @@ import TouristExpectationsTitle from "../touristExpectations/TouristExpectations
 export default function TouristExpectations() {
   return (
     <div>
-      <SectionMainNavbar />
+      <SectionMainNavbar activeLink={"/expectativas-turisticas"} />
       <SectionNavbar activeLink="/expectativas-turisticas" />
       <TouristExpectationsTitle />
       <Breadcrumb

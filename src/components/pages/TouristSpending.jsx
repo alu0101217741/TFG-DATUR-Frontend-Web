@@ -10,7 +10,7 @@ import TouristSpendingTitle from "../touristSpending/TouristSpendingTitle";
 export default function TouristSpending() {
   return (
     <div>
-      <SectionMainNavbar />
+      <SectionMainNavbar activeLink={"/gasto-turistico"} />
       <SectionNavbar activeLink="/gasto-turistico" />
       <TouristSpendingTitle />
       <Breadcrumb
