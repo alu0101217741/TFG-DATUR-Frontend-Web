@@ -42,21 +42,22 @@ video {
     font-size: 50px;
   }
   .slogan-container p {
-    font-size: 20px;
+    font-size: 25px;
     margin: 3px;
   }
   .slogan-container {
-    height: 40vh;
+    height: 30vh;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .slogan-container h1 {
     font-size: 30px;
   }
   .slogan-container p {
-    font-size: 15px;
-    margin: 3px;
+    font-size: 17px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
   .slogan-container {
     height: 30vh;
