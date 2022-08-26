@@ -18,14 +18,10 @@ function SectionNavbar({ activeLink }) {
             >
               <Nav.Link
                 as={Link}
-                to="/numero-de-turistas-y-nacionalidades"
-                className={
-                  activeLink === "/numero-de-turistas-y-nacionalidades"
-                    ? "active"
-                    : ""
-                }
+                to="/numero-de-turistas"
+                className={activeLink === "/numero-de-turistas" ? "active" : ""}
               >
-                Número de turistas y nacionalidades
+                Número de turistas
               </Nav.Link>
               <Nav.Link
                 as={Link}

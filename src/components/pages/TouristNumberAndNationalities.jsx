@@ -10,12 +10,12 @@ import TouristNumberAndNationalitiesTitle from "../touristNumberAndNationalities
 export default function TouristNumberAndNationalities() {
   return (
     <div>
-      <SectionMainNavbar activeLink={"/numero-de-turistas-y-nacionalidades"} />
-      <SectionNavbar activeLink="/numero-de-turistas-y-nacionalidades" />
+      <SectionMainNavbar activeLink={"/numero-de-turistas"} />
+      <SectionNavbar activeLink="/numero-de-turistas" />
       <TouristNumberAndNationalitiesTitle />
       <Breadcrumb
         breadcrumItem={"NÚMERO DE TURISTAS Y NACIONALIDADES"}
-        breadcrumItemLink={"/numero-de-turistas-y-nacionalidades"}
+        breadcrumItemLink={"/numero-de-turistas"}
       />
       <TouristNumberAndNationalitiesContent />
       <TouristNumberAndNationalitiesGraph />

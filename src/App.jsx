@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route
-            path="/numero-de-turistas-y-nacionalidades"
+            path="/numero-de-turistas"
             element={<TouristNumberAndNationalities />}
           />
           <Route path="/estancia-turistica" element={<TouristStay />} />

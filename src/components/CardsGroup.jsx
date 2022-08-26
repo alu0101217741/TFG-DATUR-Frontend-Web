@@ -11,18 +11,18 @@ function CardsGroup() {
           <ul className="cards-items">
             <Card
               src="images/touristNumberAndNationalities.jpg"
-              title="Número turistas y nacionalidades"
-              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              title="Número de turistas"
+              text="Conoce el número de turistas que visitan las Islas Canarias, incluyendo su evolución, nacionalidades y distribución por islas."
               label="Instituto Canario de Estadística"
-              details="Actualización estimada de los datos: mensual"
-              path="/numero-de-turistas-y-nacionalidades"
+              details="Actualización estimada: mensual"
+              path="/numero-de-turistas"
             />
             <Card
               src="images/tourist-spending.jpg"
               title="Gasto turístico"
-              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              text="Observa la evolución del gasto turístico por año y trimestre, con un desglose del gasto por conceptos."
               label="Instituto Canario de Estadística"
-              details="Actualización estimada de los datos: mensual"
+              details="Actualización estimada: mensual"
               path="/gasto-turistico"
             />
           </ul>
@@ -30,17 +30,17 @@ function CardsGroup() {
             <Card
               src="images/touristStay.jpg"
               title="Estancia turística"
-              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              text="Infórmate sobre la estancia media de los turistas, teniendo en cuenta el año, lugar de residencia, isla y tipo de alojamiento."
               label="Instituto Canario de Estadística"
-              details="Actualización estimada de los datos: mensual"
+              details="Actualización estimada: mensual"
               path="/estancia-turistica"
             />
             <Card
               src="images/img-header-energy-data.png"
               title="Expectativas turísticas"
-              text="Conoce el número de turistas y nacionalidades que visitan las Islas Canarias, incluyendo su evolución a lo largo de los años y un clasificación por islas."
+              text="Consigue una visión del futuro del sector turístico, a través de las expectativas del grado de ocupación y la marcha del negocio."
               label="Instituto Canario de Estadística"
-              details="Actualización estimada de los datos: mensual"
+              details="Actualización estimada: mensual"
               path="/expectativas-turisticas"
             />
           </ul>

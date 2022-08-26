@@ -58,9 +58,9 @@ function SectionMainNavbar({ activeLink }) {
                   </Nav.Link>
                   <Nav.Link
                     as={Link}
-                    to="/numero-de-turistas-y-nacionalidades"
+                    to="/numero-de-turistas"
                     className={
-                      activeLink === "/numero-de-turistas-y-nacionalidades"
+                      activeLink === "/numero-de-turistas"
                         ? "section-name active-background"
                         : "section-name"
                     }
