@@ -1,33 +1,35 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
+const ChartType = {
+  LINE: "líneas",
+  COLUMN: "columnas",
+  AREA: "area",
+};
 
 function LineCharts({ data }) {
+  const chartComponent = useRef({});
+  const [chartTypeToShow, setchartTypeToShow] = useState("líneas");
+  const [chartType, setChartType] = useState("line");
+
   const [chartOptions, setChartOptions] = useState({
     chart: {
+      type: "line",
       shadow: true,
     },
     title: {
       text: "Evolución del número de turistas",
     },
     subtitle: {
-      text: "Fuente: Instituto Canario de Estadística",
+      text: 'Fuente: <a target="_blank" href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
     },
     yAxis: {
       title: {
         text: "Millones de turistas",
       },
-    },
-    xAxis: {
-      accessibility: {
-        rangeDescription: "Range: 2010 to 2022",
-      },
-    },
-    legend: {
-      layout: "vertical",
-      align: "right",
-      verticalAlign: "middle",
     },
     plotOptions: {
       line: {
@@ -42,51 +44,76 @@ function LineCharts({ data }) {
         pointStart: 2010,
       },
     },
-    series: [
-      {
-        name: "Número de turistas",
-        data: [],
-      },
-    ],
-    responsive: {
-      rules: [
-        {
-          condition: {
-            maxWidth: 500,
-          },
-          chartOptions: {
-            legend: {
-              layout: "horizontal",
-              align: "center",
-              verticalAlign: "bottom",
-            },
-          },
-        },
-      ],
+    credits: {
+      enabled: false,
     },
   });
 
   useEffect(() => {
     const dataMapping = data.reverse().map((item) => item.totalTourists);
     setChartOptions({
-      series: [{ data: dataMapping }],
+      chart: {
+        type: chartType,
+      },
+      series: [{ name: "Número de turistas", data: dataMapping }],
     });
-  }, [data]);
+  }, [data, chartType]);
+
+  const handleSelect = (chartTypeSelected) => {
+    setChartOptions({
+      series: [],
+    });
+
+    setchartTypeToShow(chartTypeSelected);
+
+    switch (chartTypeSelected) {
+      case ChartType.LINE:
+        setChartType("line");
+        break;
+      case ChartType.AREA:
+        setChartType("area");
+        break;
+      case ChartType.COLUMN:
+        setChartType("column");
+        break;
+      default:
+        throw Error("Unknown chart type");
+    }
+  };
 
   return (
     <div>
-      <Container className="mt-4">
+      <div className="mt-4">
         <h3>Número total de turistas por año</h3>
-        <Container>
+        <div className="mt-3">
           <p>
             Como primera gráfica se muestra la evolución del número de turistas
             a lo largo de los años, se puedo observar que este número ha
             aumentado progresivamente. Destaca el descenso que se produce en el
             año 2020 debido a la pandemia del COVID-19.
           </p>
-          <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </Container>
-      </Container>
+          <DropdownButton
+            title={"Tipo de gráfico: " + chartTypeToShow}
+            onSelect={handleSelect}
+            className="dropdown-button-center"
+          >
+            <Dropdown.Item eventKey={ChartType.LINE}>
+              {ChartType.LINE}
+            </Dropdown.Item>
+            <Dropdown.Item eventKey={ChartType.AREA}>
+              {ChartType.AREA}
+            </Dropdown.Item>
+            <Dropdown.Item eventKey={ChartType.COLUMN}>
+              {ChartType.COLUMN}
+            </Dropdown.Item>
+          </DropdownButton>
+          <HighchartsReact
+            ref={chartComponent}
+            highcharts={Highcharts}
+            options={chartOptions}
+          />
+        </div>
+      </div>
     </div>
   );
 }

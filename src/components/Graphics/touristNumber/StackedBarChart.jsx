@@ -165,7 +165,7 @@ function StackedBarChart({ data }) {
     <div>
       <Container className="mt-4">
         <h3>Nacionalidades que visitan Canarias</h3>
-        <Container>
+        <Container className="mt-3">
           <p>
             En esta gráfica se refleja bastante información acerca de las
             nacionalidades que visitan Canarias. Se encuentran disponibles los

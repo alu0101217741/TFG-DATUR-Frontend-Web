@@ -34,7 +34,7 @@ function BasicBar({ data }) {
       shadow: true,
     },
     subtitle: {
-      text: 'Fuente: <a href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
+      text: 'Fuente: <a target="_blank" href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
     },
     yAxis: {
       min: 0,
@@ -141,7 +141,7 @@ function BasicBar({ data }) {
     <div>
       <Container className="mt-4">
         <h3>Distribución de los turistas</h3>
-        <Container>
+        <Container className="mt-3">
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
