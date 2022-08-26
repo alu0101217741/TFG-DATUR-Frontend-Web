@@ -5,11 +5,11 @@ import "./TouristNumberContent.css";
 function TouristNumber() {
   return (
     <div>
-      <Container className="mt-4">
+      <Container className="mt-4 text-style">
         <Container>
           <h2 className="section-title">Información de la sección</h2>
           <Container>
-            <p className="mt-4 text-start text-wrap">
+            <p className="mt-4 text-start text-wrap link-style">
               En esta primera sección se pretende proporcionar una visión global
               acerca del número de turistas que visitan las Islas Canarias, de
               forma que no solo se muestra estos datos sino que también se
@@ -21,7 +21,7 @@ function TouristNumber() {
                 Canarias Datos Abiertos
               </a>
             </p>
-            <ul className="mt-4">
+            <ul className="mt-4 link-style">
               <li>
                 <a href="https://datos.canarias.es/dataset/turistas-por-islas">
                   Turistas que han visitado Canarias según lugares de residencia

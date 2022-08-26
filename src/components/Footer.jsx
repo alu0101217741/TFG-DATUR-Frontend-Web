@@ -8,7 +8,7 @@ import "./Footer.css";
 function Footer() {
   return (
     <div className="footer">
-      <Container className="footer-container">
+      <Container className="footer-container text-style">
         <Row>
           <Col lg={4} xs={12}>
             <h2>Turismo</h2>
@@ -20,7 +20,7 @@ function Footer() {
               del turismo canario.
             </p>
           </Col>
-          <Col lg={4} xs={12} className="footer-main-content">
+          <Col lg={4} xs={12} className="footer-main-content link-style">
             <h2>Enlaces recomendados</h2>
             <ul className="list-unstyled">
               <li>
@@ -52,7 +52,7 @@ function Footer() {
               </li>
             </ul>
           </Col>
-          <Col lg={4} xs={12} className="footer-links">
+          <Col lg={4} xs={12} className="footer-links text-style">
             <h2>Contacto</h2>
             <p>
               Web realizada por Alberto Mendoza Rodríguez como proyecto de

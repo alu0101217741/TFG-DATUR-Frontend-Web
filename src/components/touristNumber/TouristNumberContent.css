@@ -4,6 +4,14 @@
   font-size: 45px;
 }
 
+.text-style p {
+  font-family: "Roboto";
+}
+
+.link-style a {
+  font-family: "Roboto";
+}
+
 @media screen and (max-width: 960px) {
   .section-title {
     font-size: 45px;
