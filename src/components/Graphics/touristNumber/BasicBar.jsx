@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import "./BasicBar.css";
 
 function compare(firstElement, secondElement) {
   if (firstElement.tourists > secondElement.tourists) {
@@ -39,7 +40,7 @@ function BasicBar({ data }) {
     yAxis: {
       min: 0,
       title: {
-        text: "Número de turistas (millones)",
+        text: "Número de turistas",
         align: "high",
       },
       labels: {
@@ -150,7 +151,7 @@ function BasicBar({ data }) {
           </p>
           <ButtonGroup
             aria-label="Years to be paint in the graph"
-            className="mx-auto"
+            className="mx-auto center-custom-button"
           >
             <Button
               variant="primary"

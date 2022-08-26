@@ -25,9 +25,13 @@
   margin-right: 0.5em;
 }
 
-.btn-group {
-  margin: 1em;
+.center-buttons {
   text-align: center;
-  width: inherit;
-  display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-primary {
+    font-size: 18px;
+    margin-bottom: 0.7em;
+  }
 }

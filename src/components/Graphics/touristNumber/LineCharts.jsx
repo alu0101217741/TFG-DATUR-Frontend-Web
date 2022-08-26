@@ -1,6 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
@@ -11,9 +11,7 @@ const ChartType = {
 };
 
 function LineCharts({ data }) {
-  const chartComponent = useRef({});
-  const [chartTypeToShow, setchartTypeToShow] = useState("líneas");
-  const [chartType, setChartType] = useState("line");
+  const [chartTypeToShow, setchartTypeToShow] = useState("lineas");
 
   const [chartOptions, setChartOptions] = useState({
     chart: {
@@ -52,33 +50,45 @@ function LineCharts({ data }) {
   useEffect(() => {
     const dataMapping = data.reverse().map((item) => item.totalTourists);
     setChartOptions({
-      chart: {
-        type: chartType,
-      },
-      series: [{ name: "Número de turistas", data: dataMapping }],
+      series: [
+        { name: "Número de turistas", data: dataMapping, color: "#2f7ed8" },
+      ],
     });
-  }, [data, chartType]);
+  }, [data]);
 
   const handleSelect = (chartTypeSelected) => {
-    setChartOptions({
-      series: [],
-    });
-
-    setchartTypeToShow(chartTypeSelected);
-
+    let chart;
+    let duration;
     switch (chartTypeSelected) {
       case ChartType.LINE:
-        setChartType("line");
+        chart = "line";
+        duration = 2000;
         break;
       case ChartType.AREA:
-        setChartType("area");
+        chart = "area";
+        duration = 1700;
         break;
       case ChartType.COLUMN:
-        setChartType("column");
+        chart = "column";
+        duration = 1500;
         break;
       default:
         throw Error("Unknown chart type");
     }
+
+    setChartOptions({
+      chart: {
+        type: chart,
+      },
+      series: {
+        animation: {
+          duration: duration,
+          easing: "easeOutBounce",
+        },
+      },
+    });
+
+    setchartTypeToShow(chartTypeSelected);
   };
 
   return (
@@ -107,11 +117,7 @@ function LineCharts({ data }) {
               {ChartType.COLUMN}
             </Dropdown.Item>
           </DropdownButton>
-          <HighchartsReact
-            ref={chartComponent}
-            highcharts={Highcharts}
-            options={chartOptions}
-          />
+          <HighchartsReact highcharts={Highcharts} options={chartOptions} />
         </div>
       </div>
     </div>

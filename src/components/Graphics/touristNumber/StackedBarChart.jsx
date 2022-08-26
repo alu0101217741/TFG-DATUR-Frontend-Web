@@ -2,9 +2,21 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import "./StackedBarChart.css";
+
+const ChartType = {
+  LINE: "líneas",
+  COLUMN: "columnas",
+  AREA: "area",
+  BAR: "barras",
+};
+
+const PeriodTime = {
+  YEAR: "año",
+  TRIMESTER: "trimestre",
+};
 
 function compare(firstElement, secondElement) {
   const firstElementNumber =
@@ -41,6 +53,10 @@ function StackedBarChart({ data }) {
 
   const [activeYear, setActiveYear] = useState(0);
 
+  const [chartTypeToShow, setchartTypeToShow] = useState(ChartType.BAR);
+
+  const [periodTime, setPeriodTime] = useState(PeriodTime.TRIMESTER);
+
   const [chartOptions, setChartOptions] = useState({
     chart: {
       type: "bar",
@@ -52,6 +68,9 @@ function StackedBarChart({ data }) {
         text: "Número de turistas",
       },
     },
+    subtitle: {
+      text: 'Fuente: <a target="_blank" href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
+    },
     legend: {
       reversed: true,
     },
@@ -59,6 +78,9 @@ function StackedBarChart({ data }) {
       series: {
         stacking: "normal",
       },
+    },
+    credits: {
+      enabled: false,
     },
   });
 
@@ -105,26 +127,28 @@ function StackedBarChart({ data }) {
         {
           name: "Cuarto trimestre",
           data: fourthTrimester,
+          color: "#2f7ed8",
         },
         {
           name: "Tercer trimestre",
           data: thirdTrimester,
+          color: "#f28f43",
         },
         {
           name: "Segundo trimestre",
           data: secondTrimester,
+          color: "#492970",
         },
         {
           name: " Primer trimestre",
           data: firstTrimester,
+          color: "#c42525",
         },
       ],
     });
   }, [data]);
 
-  const updateChartWithYear = (year) => {
-    setActiveYear(year);
-
+  const handleSelect = (year, period, chartType) => {
     const indexYear = years.indexOf(year);
     let dataToBeShow = [];
 
@@ -133,6 +157,62 @@ function StackedBarChart({ data }) {
     if (indexYear === 2) dataToBeShow = formattedDataThirdYear;
     if (indexYear === 3) dataToBeShow = formattedDataFourthYear;
 
+    const chart = chartType ? { type: chartType.type } : {};
+
+    const animation = chartType
+      ? {
+          duration: chartType.duration,
+          easing: "easeOutBounce",
+        }
+      : {};
+
+    let series;
+    if (period === PeriodTime.YEAR) {
+      const totalByNationality = dataToBeShow.map((item) => {
+        return (
+          item.firstTrimester +
+          item.secondTrimester +
+          item.thirdTrimester +
+          item.fourthTrimester
+        );
+      });
+
+      series = [
+        {
+          name: "Número total de turistas",
+          data: totalByNationality,
+          animation: animation,
+        },
+      ];
+    } else {
+      series = [
+        {
+          name: "Cuarto trimestre",
+          data: dataToBeShow.map((item) => item.fourthTrimester),
+          animation: animation,
+          color: "#2f7ed8",
+        },
+        {
+          name: "Tercer trimestre",
+          data: dataToBeShow.map((item) => item.thirdTrimester),
+          animation: animation,
+          color: "#f28f43",
+        },
+        {
+          name: "Segundo trimestre",
+          data: dataToBeShow.map((item) => item.secondTrimester),
+          animation: animation,
+          color: "#492970",
+        },
+        {
+          name: " Primer trimestre",
+          data: dataToBeShow.map((item) => item.firstTrimester),
+          animation: animation,
+          color: "#c42525",
+        },
+      ];
+    }
+
     setChartOptions({
       title: {
         text: `Rankings de nacionalidades en ${year}`,
@@ -140,32 +220,60 @@ function StackedBarChart({ data }) {
       xAxis: {
         categories: dataToBeShow.map((item) => item.country), // Countries
       },
-      series: [
-        {
-          name: "Cuarto trimestre",
-          data: dataToBeShow.map((item) => item.fourthTrimester),
-        },
-        {
-          name: "Tercer trimestre",
-          data: dataToBeShow.map((item) => item.thirdTrimester),
-        },
-        {
-          name: "Segundo trimestre",
-          data: dataToBeShow.map((item) => item.secondTrimester),
-        },
-        {
-          name: " Primer trimestre",
-          data: dataToBeShow.map((item) => item.firstTrimester),
-        },
-      ],
+      chart: chart,
+      series: series,
     });
+  };
+
+  const handleTypeChart = (chartTypeSelected) => {
+    let chart;
+    let duration;
+    switch (chartTypeSelected) {
+      case ChartType.BAR:
+        chart = "bar";
+        duration = 1800;
+        break;
+      case ChartType.LINE:
+        chart = "line";
+        duration = 1600;
+        break;
+      case ChartType.AREA:
+        chart = "area";
+        duration = 1400;
+        break;
+      case ChartType.COLUMN:
+        chart = "column";
+        duration = 1200;
+        break;
+      default:
+        throw Error("Unknown chart type");
+    }
+
+    setchartTypeToShow(chartTypeSelected);
+
+    const chartType = {
+      type: chart,
+      duration: duration,
+    };
+
+    handleSelect(activeYear, periodTime, chartType);
+  };
+
+  const handleYear = (yearSelected) => {
+    setActiveYear(Number(yearSelected));
+    handleSelect(Number(yearSelected), periodTime);
+  };
+
+  const handlePeriodTime = (periodTimeSelected) => {
+    setPeriodTime(periodTimeSelected);
+    handleSelect(activeYear, periodTimeSelected);
   };
 
   return (
     <div>
-      <Container className="mt-4">
+      <div className="mt-4">
         <h3>Nacionalidades que visitan Canarias</h3>
-        <Container className="mt-3">
+        <div className="mt-3">
           <p>
             En esta gráfica se refleja bastante información acerca de las
             nacionalidades que visitan Canarias. Se encuentran disponibles los
@@ -175,52 +283,53 @@ function StackedBarChart({ data }) {
             turistas por cada trimestre, lo que hace posible conocer la
             distribución de los turistas a lo largo del año.
           </p>
-          <ButtonGroup
-            aria-label="Years to be paint in the graph"
-            className="mx-auto"
+        </div>
+
+        <Container className="center-buttons">
+          <DropdownButton
+            className="d-inline mx-2"
+            title={"Tipo de gráfico: " + chartTypeToShow}
+            onSelect={handleTypeChart}
           >
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[3]);
-              }}
-              className={activeYear === years[3] ? "active" : ""}
-            >
-              {years[3]}
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[2]);
-              }}
-              className={activeYear === years[2] ? "active" : ""}
-            >
-              {years[2]}
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[1]);
-              }}
-              className={activeYear === years[1] ? "active" : ""}
-            >
-              {years[1]}
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[0]);
-              }}
-              className={activeYear === years[0] ? "active" : ""}
-            >
-              {years[0]}
-            </Button>
-          </ButtonGroup>
+            <Dropdown.Item eventKey={ChartType.BAR}>
+              {ChartType.BAR}
+            </Dropdown.Item>
+            <Dropdown.Item eventKey={ChartType.LINE}>
+              {ChartType.LINE}
+            </Dropdown.Item>
+            <Dropdown.Item eventKey={ChartType.AREA}>
+              {ChartType.AREA}
+            </Dropdown.Item>
+            <Dropdown.Item eventKey={ChartType.COLUMN}>
+              {ChartType.COLUMN}
+            </Dropdown.Item>
+          </DropdownButton>
+          <DropdownButton
+            className="d-inline mx-2"
+            title={"Año: " + activeYear}
+            onSelect={handleYear}
+          >
+            <Dropdown.Item eventKey={years[0]}>{years[0]}</Dropdown.Item>
+            <Dropdown.Item eventKey={years[1]}>{years[1]}</Dropdown.Item>
+            <Dropdown.Item eventKey={years[2]}>{years[2]}</Dropdown.Item>
+            <Dropdown.Item eventKey={years[3]}>{years[3]}</Dropdown.Item>
+          </DropdownButton>
+
+          <DropdownButton
+            className="d-inline mx-2"
+            title={"Organizar por: " + periodTime}
+            onSelect={handlePeriodTime}
+          >
+            <Dropdown.Item eventKey={PeriodTime.YEAR}>
+              {PeriodTime.YEAR}
+            </Dropdown.Item>
+            <Dropdown.Item eventKey={PeriodTime.TRIMESTER}>
+              {PeriodTime.TRIMESTER}
+            </Dropdown.Item>
+          </DropdownButton>
         </Container>
-        <Container>
-          <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </Container>
-      </Container>
+        <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+      </div>
     </div>
   );
 }
