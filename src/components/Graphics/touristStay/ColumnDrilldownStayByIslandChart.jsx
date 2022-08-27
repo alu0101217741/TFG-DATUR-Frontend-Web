@@ -4,13 +4,30 @@ import drilldown from "highcharts/modules/drilldown";
 import exportdata from "highcharts/modules/export-data";
 import exporting from "highcharts/modules/exporting";
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 drilldown(Highcharts);
 exporting(Highcharts);
 exportdata(Highcharts);
+
+const COLORS = [
+  "#2f7ed8",
+  "#f28f43",
+  "#492970",
+  "#c42525",
+  "#0DAF12",
+  "#8C1FA7",
+  "#B8177D",
+];
+
+function compare(a, b) {
+  if (b.residencePlace === "Otros países") return -1;
+  if (a.averageStay > b.averageStay) return -1;
+  if (a.averageStay < b.averageStay) return 1;
+
+  return 0;
+}
 
 function ColumnDrilldownStayByIslandChart({ data }) {
   const [dataSelected, setDataSelected] = useState([]);
@@ -60,18 +77,18 @@ function ColumnDrilldownStayByIslandChart({ data }) {
     tooltip: {
       headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
       pointFormat:
-        '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
+        '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> días<br/>',
     },
     exporting: {
       buttons: {
         contextButton: {
           menuItems: [
-            "downloadPNG",
-            "downloadJPEG",
-            "downloadPDF",
-            "downloadSVG",
             "viewFullscreen",
             "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
           ],
         },
       },
@@ -95,58 +112,66 @@ function ColumnDrilldownStayByIslandChart({ data }) {
   });
 
   useEffect(() => {
-    const dataSelected = data.map((item) => {
-      return {
-        year: item.year,
-        stayByIsland: item.stayByIsland,
-      };
-    });
-
-    const years = dataSelected.map((item) => item.year.toString());
-
-    setDataSelected(dataSelected);
-
-    setYears(years);
-
-    setActiveYear(years[0]);
-
-    const firstData = dataSelected.slice(0, 1).flat();
-
-    const mainData = firstData.map((item) => {
-      return item.stayByIsland.map((element) => {
+    if (data.length > 0) {
+      const dataSelected = data.map((item) => {
         return {
-          name: element.island,
-          y: element.averageStay,
-          drilldown: element.island,
+          year: item.year,
+          stayByIsland: item.stayByIsland,
         };
       });
-    });
 
-    const secondaryData = firstData.map((item) => {
-      return item.stayByIsland.map((element) => {
+      const years = dataSelected.map((item) => item.year.toString());
+
+      setDataSelected(dataSelected);
+
+      setYears(years);
+
+      setActiveYear(years[0]);
+
+      const firstData = dataSelected[0];
+
+      console.log(firstData);
+
+      const mainData = firstData.stayByIsland.sort(compare).map((item, i) => {
         return {
-          name: element.island,
-          id: element.island,
-          data: element.islandStayByResidencePlaces.map((residencePlace) => {
-            return [residencePlace.residencePlace, residencePlace.averageStay];
-          }),
+          name: item.island,
+          y: item.averageStay,
+          drilldown: item.island,
+          color: COLORS[i],
         };
       });
-    });
 
-    setChartOptions({
-      title: {
-        text: `Estancia media por isla en ${years[0]}`,
-      },
-      series: [
-        {
-          data: mainData[0],
+      const secondaryData = firstData.stayByIsland.map((item) => {
+        return {
+          name: item.island,
+          id: item.island,
+          data: item.islandStayByResidencePlaces
+            .sort(compare)
+            .map((residencePlace) => {
+              return [
+                residencePlace.residencePlace,
+                residencePlace.averageStay,
+              ];
+            }),
+        };
+      });
+
+      console.log(secondaryData);
+
+      setChartOptions({
+        title: {
+          text: `Estancia media por isla en ${years[0]}`,
         },
-      ],
-      drilldown: {
-        series: secondaryData[0],
-      },
-    });
+        series: [
+          {
+            data: mainData,
+          },
+        ],
+        drilldown: {
+          series: secondaryData,
+        },
+      });
+    }
   }, [data]);
 
   const handleSelect = (year) => {
@@ -154,24 +179,29 @@ function ColumnDrilldownStayByIslandChart({ data }) {
 
     const indexActualYear = years.indexOf(year);
 
-    const mainData = dataSelected[indexActualYear].stayByIsland.map(
-      (element) => {
+    const mainData = dataSelected[indexActualYear].stayByIsland
+      .sort(compare)
+      .map((element) => {
         return {
           name: element.island,
           y: element.averageStay,
           drilldown: element.island,
         };
-      }
-    );
+      });
 
     const secondaryData = dataSelected[indexActualYear].stayByIsland.map(
       (element) => {
         return {
           name: element.island,
           id: element.island,
-          data: element.islandStayByResidencePlaces.map((residencePlace) => {
-            return [residencePlace.residencePlace, residencePlace.averageStay];
-          }),
+          data: element.islandStayByResidencePlaces
+            .sort(compare)
+            .map((residencePlace) => {
+              return [
+                residencePlace.residencePlace,
+                residencePlace.averageStay,
+              ];
+            }),
         };
       }
     );
@@ -193,17 +223,12 @@ function ColumnDrilldownStayByIslandChart({ data }) {
 
   return (
     <div>
-      <Container className="mt-4">
+      <div className="mt-4">
         <h3>Estancia media por isla</h3>
-        <Container>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-          </p>
+        <div className="mt-3">
+          <p>DECIR QUE SE ORDENA AUTOMATICAMENTE</p>
           <DropdownButton
-            title={activeYear}
+            title={"Año: " + activeYear}
             onSelect={handleSelect}
             className="dropdown-button-center"
           >
@@ -212,8 +237,8 @@ function ColumnDrilldownStayByIslandChart({ data }) {
             ))}
           </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 }

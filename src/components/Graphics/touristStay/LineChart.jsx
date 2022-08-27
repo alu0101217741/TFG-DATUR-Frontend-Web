@@ -96,7 +96,7 @@ function LineChart({ data }) {
 
   return (
     <div>
-      <div className="mt-4 text-style">
+      <div className="mt-4">
         <h3>Estancia media de los turistas por año</h3>
         <div className="mt-3">
           <p>

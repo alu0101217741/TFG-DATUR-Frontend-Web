@@ -241,7 +241,7 @@ function ColumnComparisonChart({ data }) {
   return (
     <div>
       {
-        <div className="mt-4 text-style">
+        <div className="mt-4">
           <h3>Estancia media según lugar de residencia</h3>
           <div className="mt-3">
             <p>
