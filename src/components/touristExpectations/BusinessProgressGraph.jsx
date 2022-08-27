@@ -14,7 +14,7 @@ function BusinessProgressGraph() {
   }, []);
   return (
     <div>
-      <Container className="mt-4 graph-container">
+      <Container className="mt-4 graph-container text-style">
         <Container>
           <SemiCircleDonutChartBussinesChart data={[...data]} />
           <SemiCircleDonutChartMainFactorsChart data={[...data]} />

@@ -1,7 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
@@ -10,23 +9,23 @@ function trimesterMapper(trimester) {
   return previousYear + trimester.slice(4);
 }
 
-function trimesterLabelMapper(trimester) {
+function trimesterLabelMapper(trimester, capitalLetter) {
   const trimesterInNumber = trimester.slice(5);
   const year = trimester.slice(0, 4);
 
   let label;
   switch (trimesterInNumber) {
     case "01":
-      label = "Primer trimestre";
+      label = capitalLetter ? "Primer trimestre" : "primer trimestre";
       break;
     case "04":
-      label = "Segundo trimestre";
+      label = capitalLetter ? "Segundo trimestre" : "segundo trimestre";
       break;
     case "07":
-      label = "Tercer trimestre";
+      label = capitalLetter ? "Tercer trimestre" : "tercer trimestre";
       break;
     case "10":
-      label = "Cuarto trimestre";
+      label = capitalLetter ? "Cuarto trimestre" : "cuarto trimestre";
       break;
     default:
       label = "Trimestre no válido";
@@ -36,6 +35,14 @@ function trimesterLabelMapper(trimester) {
 }
 
 function SemiCircleDonutChartBussinesChart({ data }) {
+  const [chartExplication, setChartExplication] = useState({
+    trimester: "",
+    previousYear: "",
+    favorable: "",
+    normal: "",
+    desfavorable: "",
+  });
+
   const [chartOptions, setChartOptions] = useState({
     chart: {
       plotBackgroundColor: null,
@@ -78,6 +85,9 @@ function SemiCircleDonutChartBussinesChart({ data }) {
         center: ["50%", "75%"],
         size: "110%",
       },
+    },
+    credits: {
+      enabled: false,
     },
   });
 
@@ -122,6 +132,8 @@ function SemiCircleDonutChartBussinesChart({ data }) {
     if (data.length !== 0) {
       const dataSelected = data[0];
 
+      const year = dataSelected.trimester.slice(0, 4);
+
       const previousTrimester = trimesterMapper(dataSelected.trimester);
 
       const previousData = data.find((item) => {
@@ -139,6 +151,14 @@ function SemiCircleDonutChartBussinesChart({ data }) {
         previousData.hotelConfidenceIndex,
       ];
 
+      setChartExplication({
+        trimester: trimesterLabelMapper(dataSelected.trimester, false),
+        previousYear: Number(year) - 1,
+        favorable: businessTendencyFirstChart[0][1],
+        normal: businessTendencyFirstChart[1][1],
+        desfavorable: businessTendencyFirstChart[2][1],
+      });
+
       setChartOptions({
         series: [
           {
@@ -153,8 +173,8 @@ function SemiCircleDonutChartBussinesChart({ data }) {
       setSecondChartOptions({
         xAxis: {
           categories: [
-            trimesterLabelMapper(dataSelected.trimester),
-            trimesterLabelMapper(previousData.trimester),
+            trimesterLabelMapper(dataSelected.trimester, true),
+            trimesterLabelMapper(previousData.trimester, true),
           ],
           title: {
             text: null,
@@ -164,6 +184,7 @@ function SemiCircleDonutChartBussinesChart({ data }) {
           {
             name: "Indice de confianza hotelera",
             data: hotelConfidenceIndexes,
+            color: "#2f7ed8",
           },
         ],
       });
@@ -172,14 +193,16 @@ function SemiCircleDonutChartBussinesChart({ data }) {
 
   return (
     <div>
-      <Container className="mt-4">
-        <h3>Marcha del negocio</h3>
-        <Container>
+      <div className="mt-4">
+        <h3>Marcha del negocio {chartExplication.trimester}</h3>
+        <div>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            En cuanto a la marcha del negocio para el{" "}
+            {chartExplication.trimester}, en relación a{" "}
+            {chartExplication.previousYear}, el {chartExplication.favorable}% de
+            los hosteleros piensa que será favorable, mientras que el{" "}
+            {chartExplication.desfavorable}% opina que será desfavorable, por
+            último el {chartExplication.normal}% considera que será normal.
           </p>
           <Row>
             <Col xs={12} lg={6}>
@@ -192,8 +215,8 @@ function SemiCircleDonutChartBussinesChart({ data }) {
               />
             </Col>
           </Row>
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 }

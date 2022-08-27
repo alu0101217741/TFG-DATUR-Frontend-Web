@@ -14,7 +14,7 @@ function OccupancyRateForecastGraph() {
 
   return (
     <div>
-      <Container className="mt-4 graph-container">
+      <Container className="mt-4 graph-container text-style">
         <h2 className="section-title">Visualización de los datos</h2>
         <Container>
           <SemiCircleDonutChart data={[...data]} />

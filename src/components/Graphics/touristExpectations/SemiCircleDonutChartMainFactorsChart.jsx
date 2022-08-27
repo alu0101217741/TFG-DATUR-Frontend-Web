@@ -1,7 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
@@ -19,7 +18,29 @@ const MainFactorsToPrint = {
   PRICE_LEVEL: "Nivel de<br>precios",
 };
 
+function trimesterMapper(trimesterInNumber) {
+  switch (trimesterInNumber) {
+    case "01":
+      return "primer";
+    case "04":
+      return "segundo";
+    case "07":
+      return "tercer";
+    case "10":
+      return "cuarto";
+    default:
+      return "Trimestre no válido";
+  }
+}
+
 function SemiCircleDonutChartMainFactorsChart({ data }) {
+  const [chartExplication, setChartExplication] = useState({
+    trimester: "",
+    previousYear: "",
+    increase: "",
+    decrease: "",
+    stability: "",
+  });
   const [activeFactor, setActiveFactor] = useState();
   const [chartOptions, setChartOptions] = useState({
     chart: {
@@ -71,6 +92,10 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
     if (data.length !== 0) {
       const dataSelected = data[0];
 
+      const year = dataSelected.trimester.slice(0, 4);
+
+      const trimester = trimesterMapper(dataSelected.trimester.slice(5));
+
       setMainFactorsExpectations(dataSelected.mainFactorsExpectations);
 
       const chartValue = [
@@ -87,6 +112,14 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
           dataSelected.mainFactorsExpectations.businessVolume.stability,
         ],
       ];
+
+      setChartExplication({
+        trimester: trimester,
+        previousYear: Number(year) - 1,
+        increase: chartValue[0][1],
+        decrease: chartValue[1][1],
+        stability: chartValue[2][1],
+      });
 
       setActiveFactor(MainFactors.BUSINESS_VOLUME);
 
@@ -139,6 +172,14 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
       ["Estabilidad", mainFactors.stability],
     ];
 
+    setChartExplication({
+      trimester: chartExplication.trimester,
+      previousYear: chartExplication.previousYear,
+      increase: chartValue[0][1],
+      decrease: chartValue[1][1],
+      stability: chartValue[2][1],
+    });
+
     setActiveFactor(mainFactorSelected);
 
     setChartOptions({
@@ -158,14 +199,17 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
 
   return (
     <div>
-      <Container className="mt-4">
+      <div className="mt-4">
         <h3>Factores de la marcha del negocio</h3>
-        <Container>
+        <div>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            En cuanto a la factores de la marcha del negocio para el{" "}
+            {chartExplication.trimester} trimestre de{" "}
+            {chartExplication.previousYear + 1}, considerando la opción
+            seleccionada <b>{activeFactor}</b>, el {chartExplication.increase}%
+            de los hosteleros piensa que subirá, mientras que el{" "}
+            {chartExplication.decrease}% opina que descenderá, por último el{" "}
+            {chartExplication.stability}% considera que no cambiará.
           </p>
           <DropdownButton
             title={activeFactor}
@@ -186,8 +230,8 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
             </Dropdown.Item>
           </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 }

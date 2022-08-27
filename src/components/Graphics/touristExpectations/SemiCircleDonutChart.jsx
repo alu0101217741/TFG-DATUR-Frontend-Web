@@ -1,9 +1,9 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import "./SemiCircleDonutChart.css";
 
 function trimesterMapper(trimesterInNumber) {
   switch (trimesterInNumber) {
@@ -72,6 +72,9 @@ function SemiCircleDonutChart({ data }) {
         size: "110%",
       },
     },
+    credits: {
+      enabled: false,
+    },
   });
 
   const [secondChartOptions, setSecondChartOptions] = useState({
@@ -110,73 +113,74 @@ function SemiCircleDonutChart({ data }) {
         borderWidth: 0,
       },
     },
+    credits: {
+      enabled: false,
+    },
   });
 
   useEffect(() => {
-    const dataSelected = data.slice(0, 1);
+    if (data.length > 0) {
+      const dataSelected = data[0];
 
-    const year = dataSelected.map((item) => {
-      return item.trimester.slice(0, 4);
-    });
+      const year = dataSelected.trimester.slice(0, 4);
 
-    const trimester = dataSelected.map((item) => {
-      return trimesterMapper(item.trimester.slice(5));
-    });
+      const trimester = trimesterMapper(dataSelected.trimester.slice(5));
 
-    const dataToFirstChart = dataSelected
-      .map((item) => {
-        return [
-          item.occupancyRateTrend.increase,
-          item.occupancyRateTrend.decrease,
-          item.occupancyRateTrend.stability,
-        ];
-      })
-      .flat();
+      const dataToFirstChart = [
+        dataSelected.occupancyRateTrend.increase,
+        dataSelected.occupancyRateTrend.decrease,
+        dataSelected.occupancyRateTrend.stability,
+      ];
 
-    const dataForSecondChart = dataSelected.map((item) => {
-      return item.expectedOccupancyByMonth.map((month) => {
-        return month.occupancyRate;
+      const dataForSecondChart = dataSelected.expectedOccupancyByMonth.map(
+        (month) => {
+          return month.occupancyRate;
+        }
+      );
+
+      setChartOptions({
+        series: [
+          {
+            type: "pie",
+            name: "Expectativa de ocupación",
+            innerSize: "50%",
+            data: [
+              ["Aumento", dataToFirstChart[0]],
+              ["Descenso", dataToFirstChart[1]],
+              ["Estabilidad", dataToFirstChart[2]],
+            ],
+          },
+        ],
       });
-    });
 
-    setChartOptions({
-      series: [
-        {
-          type: "pie",
-          name: "Expectativa de ocupación",
-          innerSize: "50%",
-          data: [
-            ["Aumento", dataToFirstChart[0]],
-            ["Descenso", dataToFirstChart[1]],
-            ["Estabilidad", dataToFirstChart[2]],
-          ],
-        },
-      ],
-    });
+      setSecondChartOptions({
+        series: [
+          {
+            name: "Grado de ocupación",
+            data: dataForSecondChart,
+            color: "#2f7ed8",
+          },
+        ],
+      });
 
-    setSecondChartOptions({
-      series: [
-        {
-          name: "Grado de ocupación",
-          data: dataForSecondChart.flat(),
-        },
-      ],
-    });
-
-    setChartExplication({
-      trimester: trimester[0],
-      previousYear: Number(year[0]) - 1,
-      increase: dataToFirstChart[0],
-      decrease: dataToFirstChart[1],
-      stability: dataToFirstChart[2],
-    });
+      setChartExplication({
+        trimester: trimester,
+        previousYear: Number(year) - 1,
+        increase: dataToFirstChart[0],
+        decrease: dataToFirstChart[1],
+        stability: dataToFirstChart[2],
+      });
+    }
   }, [data]);
 
   return (
     <div>
-      <Container className="mt-4">
-        <h3>Grado de ocupación</h3>
-        <Container>
+      <div className="mt-4">
+        <h3>
+          Grado de ocupación {chartExplication.trimester} trimestre{" "}
+          {chartExplication.previousYear + 1}
+        </h3>
+        <div className="mt-3">
           <p>
             En cuanto a la tendencia del grado de ocupación para el{" "}
             {chartExplication.trimester} trimestre de{" "}
@@ -197,8 +201,8 @@ function SemiCircleDonutChart({ data }) {
               />
             </Col>
           </Row>
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 }

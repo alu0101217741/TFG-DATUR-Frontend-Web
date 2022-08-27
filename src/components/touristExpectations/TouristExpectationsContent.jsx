@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 function TouristExpectationsContent() {
   return (
     <div>
-      <Container className="mt-4">
+      <Container className="mt-4 text-style">
         <Container>
           <h2 className="section-title">Información de la sección</h2>
           <Container>
