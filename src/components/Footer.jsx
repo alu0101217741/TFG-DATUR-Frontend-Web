@@ -13,11 +13,12 @@ function Footer() {
           <Col lg={4} xs={12}>
             <h2>Turismo</h2>
             <p>
-              Esta web visualiza los últimos datos disponibles para cuatro de
-              los aspectos más relevantes del sector turístico. Con ello se
-              tiene pretende mejorar la interpretación, acceso y difusión de
-              estos datos, logrando mejorar la digitalización y el crecimiento
-              del turismo canario.
+              Esta web muestra información acerca del turismo canario, a través
+              de la visualización de los últimos datos disponibles para cuatro
+              de los aspectos más relevantes del sector. Estos datos se obtienen
+              del repositorio Canarias Datos Abiertos, de manera que la
+              información de la web se actualiza a medida que lo hace esta
+              fuente oficial.
             </p>
           </Col>
           <Col lg={4} xs={12} className="footer-main-content link-style">

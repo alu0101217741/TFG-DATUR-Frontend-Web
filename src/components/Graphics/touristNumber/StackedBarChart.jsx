@@ -79,6 +79,9 @@ function StackedBarChart({ data }) {
         stacking: "normal",
       },
     },
+    tooltip: {
+      valueSuffix: " turistas",
+    },
     credits: {
       enabled: false,
     },
@@ -275,12 +278,13 @@ function StackedBarChart({ data }) {
         <h3>Nacionalidades que visitan Canarias</h3>
         <div className="mt-3">
           <p>
-            En esta gráfica se refleja bastante información acerca de las
-            nacionalidades que visitan Canarias. Se encuentran disponibles los
-            últimos cuatro últimos años de los que se tienen datos, para estos
-            años se muestra el ranking de las nacionalidades que visitan las
-            islas, para cada una de las nacionalidades se refleja el número de
-            turistas por cada trimestre, lo que hace posible conocer la
+            En esta gráfica se muestran las principales nacionalidades que
+            visitan Canarias, se ordenan según el número de turistas que llegan
+            al archipiélago procedentes de ese país de origen. Para la consulta
+            se encuentran disponibles los últimos cuatro años de los que se
+            tienen datos, y se ofrece la posibilidad de organizar la información
+            por año, lo que permite conocer el número total de turistas de cada
+            nacionalidad, o por trimestre, lo que hace posible saber la
             distribución de los turistas a lo largo del año.
           </p>
         </div>

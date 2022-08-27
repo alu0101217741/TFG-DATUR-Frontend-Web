@@ -10,28 +10,47 @@ function TouristNumber() {
           <h2 className="section-title">Información de la sección</h2>
           <Container>
             <p className="mt-4 text-start text-wrap link-style">
-              En esta primera sección se pretende proporcionar una visión global
-              acerca del número de turistas que visitan las Islas Canarias, de
-              forma que no solo se muestra estos datos sino que también se
-              profundiza teniendo en cuenta las nacionalidades que visitan
-              Canarias y la distribución de estos turistas por islas. Para
-              generar estas gráficas se han utilizado los siguientes datasets
-              del repositorio
-              <a href="https://datos.canarias.es/portal/">
-                Canarias Datos Abiertos
-              </a>
+              En esta sección se proporciona una visión global acerca de los
+              turistas que visitan las Islas Canarias. Para ello, se muestra la
+              evolución del número de turistas en los últimos años, sus
+              nacionalidades, y la forma en la que se distribuyen por las islas.
+              Para generar estas gráficas se han procesado los siguientes
+              datasets del repositorio &nbsp;
+              <b>
+                <a
+                  target="_blank"
+                  href="https://datos.canarias.es/portal/"
+                  rel="noreferrer"
+                >
+                  Canarias Datos Abiertos
+                </a>
+              </b>
+              :
             </p>
             <ul className="mt-4 link-style">
               <li>
-                <a href="https://datos.canarias.es/dataset/turistas-por-islas">
-                  Turistas que han visitado Canarias según lugares de residencia
-                </a>
+                <b>
+                  <a
+                    target="_blank"
+                    href="https://datos.canarias.es/catalogos/general/dataset/turistas-que-han-visitado-canarias-segun-lugares-de-residencia-por-periodos1"
+                    rel="noreferrer"
+                  >
+                    Turistas que han visitado Canarias según lugares de
+                    residencia por periodos.
+                  </a>
+                </b>
               </li>
               <li>
-                <a href="https://datos.canarias.es/dataset/turistas-por-nacionalidad">
-                  Turistas según tipos de alojamiento por países de residencia.
-                  Islas de Canarias y periodos
-                </a>
+                <b>
+                  <a
+                    target="_blank"
+                    href="https://datos.canarias.es/catalogos/general/dataset/turistas-principales-segun-lugares-de-residencia-por-islas-de-canarias-y-periodos1"
+                    rel="noreferrer"
+                  >
+                    Turistas principales según lugares de residencia por islas
+                    de Canarias y periodos.
+                  </a>
+                </b>
               </li>
             </ul>
           </Container>

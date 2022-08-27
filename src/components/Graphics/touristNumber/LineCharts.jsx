@@ -94,14 +94,8 @@ function LineCharts({ data }) {
   return (
     <div>
       <div className="mt-4">
-        <h3>Número total de turistas por año</h3>
+        <h3>Evolución del número de turistas</h3>
         <div className="mt-3">
-          <p>
-            Como primera gráfica se muestra la evolución del número de turistas
-            a lo largo de los años, se puedo observar que este número ha
-            aumentado progresivamente. Destaca el descenso que se produce en el
-            año 2020 debido a la pandemia del COVID-19.
-          </p>
           <DropdownButton
             title={"Tipo de gráfico: " + chartTypeToShow}
             onSelect={handleSelect}
