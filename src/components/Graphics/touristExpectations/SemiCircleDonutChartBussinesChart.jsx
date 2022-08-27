@@ -195,7 +195,7 @@ function SemiCircleDonutChartBussinesChart({ data }) {
     <div>
       <div className="mt-4">
         <h3>Marcha del negocio {chartExplication.trimester}</h3>
-        <div>
+        <div className="mt-3 semicircle-style">
           <p>
             En cuanto a la marcha del negocio para el{" "}
             {chartExplication.trimester}, en relación a{" "}

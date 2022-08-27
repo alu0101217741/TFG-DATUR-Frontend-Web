@@ -180,7 +180,7 @@ function SemiCircleDonutChart({ data }) {
           Grado de ocupación {chartExplication.trimester} trimestre{" "}
           {chartExplication.previousYear + 1}
         </h3>
-        <div className="mt-3">
+        <div className="mt-3 semicircle-style">
           <p>
             En cuanto a la tendencia del grado de ocupación para el{" "}
             {chartExplication.trimester} trimestre de{" "}

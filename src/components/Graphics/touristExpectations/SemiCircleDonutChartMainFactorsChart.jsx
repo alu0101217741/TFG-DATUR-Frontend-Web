@@ -201,7 +201,7 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
     <div>
       <div className="mt-4">
         <h3>Factores de la marcha del negocio</h3>
-        <div>
+        <div className="mt-3 semicircle-style">
           <p>
             En cuanto a la factores de la marcha del negocio para el{" "}
             {chartExplication.trimester} trimestre de{" "}

@@ -149,13 +149,12 @@ function BasicColumnAverageSpendChart({ data }) {
   return (
     <div>
       <div className="mt-4">
-        <h3>Gasto turístico por año y trimestre</h3>
+        <h3>Gasto medio por turista y día</h3>
         <div className="mt-3">
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            Se visualiza el gasto medio por día que realizan los turistas
+            durante su estancia en el archipiélago, incluyendo datos anuales y
+            trimestrales.
           </p>
           <DropdownButton
             title={"Organizar por: " + timeOption}

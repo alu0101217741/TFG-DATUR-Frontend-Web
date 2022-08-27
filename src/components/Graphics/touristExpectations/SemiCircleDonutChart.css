@@ -1,11 +1,11 @@
-path.highcharts-point.highcharts-color-0 {
-  fill: rgb(18, 196, 21);
+.semicircle-style path.highcharts-point.highcharts-color-0 {
+  fill: rgb(16, 166, 16);
 }
 
-path.highcharts-point.highcharts-color-1 {
-  fill: rgb(199, 53, 8);
+.semicircle-style path.highcharts-point.highcharts-color-1 {
+  fill: rgb(181, 35, 35);
 }
 
-path.highcharts-point.highcharts-color-2 {
-  fill: rgb(47, 126, 216);
+.semicircle-style path.highcharts-point.highcharts-color-2 {
+  fill: rgb(242, 143, 67);
 }
