@@ -2,7 +2,6 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highcharts3d from "highcharts/highcharts-3d";
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./BasicColumnSpendChart.css";
@@ -71,12 +70,18 @@ function BasicColumnSpendChart({ data }) {
         beta: 0,
       },
     },
+    subtitle: {
+      text: 'Fuente: <a target="_blank" href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
+    },
     plotOptions: {
       pie: {
         allowPointSelect: true,
         cursor: "pointer",
         depth: 35,
       },
+    },
+    credits: {
+      enabled: false,
     },
   });
 
@@ -128,9 +133,9 @@ function BasicColumnSpendChart({ data }) {
 
   return (
     <div>
-      <Container className="mt-4">
+      <div className="mt-4">
         <h3>Gasto turístico incluyendo desglose de gasto</h3>
-        <Container>
+        <div className="mt-3">
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -138,7 +143,7 @@ function BasicColumnSpendChart({ data }) {
             and scrambled it to make a type specimen book.
           </p>
           <DropdownButton
-            title={activeYear}
+            title={"Año: " + activeYear}
             onSelect={handleSelect}
             className="dropdown-button-center"
           >
@@ -147,8 +152,8 @@ function BasicColumnSpendChart({ data }) {
             ))}
           </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 }

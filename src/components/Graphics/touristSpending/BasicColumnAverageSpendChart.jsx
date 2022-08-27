@@ -2,15 +2,14 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highcharts3d from "highcharts/highcharts-3d";
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 highcharts3d(Highcharts);
 
 const TimeOption = {
-  YEAR: "Año",
-  MONTH: "Trimestre",
+  YEAR: "año",
+  MONTH: "trimestre",
 };
 
 function BasicColumnAverageSpendChart({ data }) {
@@ -35,7 +34,7 @@ function BasicColumnAverageSpendChart({ data }) {
       text: "Gasto medio por turista y día",
     },
     subtitle: {
-      text: "Fuente: Instituto Canario de Estadística",
+      text: 'Fuente: <a target="_blank" href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
     },
     xAxis: {
       crosshair: true,
@@ -70,6 +69,9 @@ function BasicColumnAverageSpendChart({ data }) {
         borderWidth: 0,
       },
     },
+    credits: {
+      enabled: false,
+    },
   });
 
   useEffect(() => {
@@ -79,10 +81,10 @@ function BasicColumnAverageSpendChart({ data }) {
       const dataValue = data.slice(0, 5).reverse();
 
       const values = [
-        { name: "Primer trimestre", data: [] },
-        { name: "Segundo trimestre", data: [] },
-        { name: "Tercer trimestre", data: [] },
-        { name: "Cuarto trimestre", data: [] },
+        { name: "Primer trimestre", data: [], color: "#2f7ed8" },
+        { name: "Segundo trimestre", data: [], color: "#f28f43" },
+        { name: "Tercer trimestre", data: [], color: "#492970" },
+        { name: "Cuarto trimestre", data: [], color: "#c42525" },
       ];
 
       dataValue.forEach((item) => {
@@ -146,8 +148,9 @@ function BasicColumnAverageSpendChart({ data }) {
 
   return (
     <div>
-      <Container className="mt-4">
-        <Container>
+      <div className="mt-4">
+        <h3>Gasto turístico por año y trimestre</h3>
+        <div className="mt-3">
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -155,7 +158,7 @@ function BasicColumnAverageSpendChart({ data }) {
             and scrambled it to make a type specimen book.
           </p>
           <DropdownButton
-            title={timeOption}
+            title={"Organizar por: " + timeOption}
             onSelect={handleSelect}
             className="dropdown-button-center"
           >
@@ -167,8 +170,8 @@ function BasicColumnAverageSpendChart({ data }) {
             </Dropdown.Item>
           </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 }
