@@ -245,10 +245,14 @@ function ColumnComparisonChart({ data }) {
           <h3>Estancia media según lugar de residencia</h3>
           <div className="mt-3">
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              Se muestra el número de días que permanecen de media los turistas
+              en Canarias según su país de origen. Se ofrece la posibilidad de
+              visualizar esta información para una gran cantidad de años, además
+              también se permite comparar la información del año seleccionado
+              con cualquier otro dentro de los disponibles. Cabe destacar que en
+              la fuente oficial sólo existían datos para España a partir de
+              2019, por ello en las gráficas esta columna se muestra a cero para
+              años anteriores.
             </p>
             <Container className="center-buttons">
               <DropdownButton

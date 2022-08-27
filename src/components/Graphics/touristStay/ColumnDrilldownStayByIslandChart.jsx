@@ -224,9 +224,14 @@ function ColumnDrilldownStayByIslandChart({ data }) {
   return (
     <div>
       <div className="mt-4">
-        <h3>Estancia media por isla</h3>
+        <h3>Estancia media según isla visitada</h3>
         <div className="mt-3">
-          <p>DECIR QUE SE ORDENA AUTOMATICAMENTE</p>
+          <p>
+            En esta gráfica se incluye información de la estancia media según la
+            isla de alojamiento. Además, pulsando sobre las columnas, se puede
+            conocer la estancia media de las principales nacionalidades en la
+            isla seleccionada.
+          </p>
           <DropdownButton
             title={"Año: " + activeYear}
             onSelect={handleSelect}

@@ -216,10 +216,8 @@ function StackedBarChart({ data }) {
       ];
     }
 
-    console.log(chartType.type);
-
     const tooltip =
-      chartType.type === "bar"
+      chartType?.type === "bar"
         ? {
             crosshairs: false,
             shared: false,

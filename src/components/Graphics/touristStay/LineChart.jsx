@@ -19,7 +19,7 @@ function LineChart({ data }) {
       shadow: true,
     },
     title: {
-      text: "Evolución de la estancia media de turistas",
+      text: "Evolución de la estancia media",
     },
     subtitle: {
       text: 'Fuente: <a target="_blank" href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
@@ -35,6 +35,9 @@ function LineChart({ data }) {
           enabled: true,
         },
       },
+    },
+    tooltip: {
+      valueSuffix: " días",
     },
     credits: {
       enabled: false,
@@ -97,13 +100,12 @@ function LineChart({ data }) {
   return (
     <div>
       <div className="mt-4">
-        <h3>Estancia media de los turistas por año</h3>
+        <h3>Evolución de la estancia media</h3>
         <div className="mt-3">
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            En esta gráfica se recoge la forma en la que ha evolucionado, a
+            largo de los años, el número de días de media que pasan los turistas
+            durante su estancia en el archipiélago.
           </p>
           <DropdownButton
             title={"Tipo de gráfico: " + chartTypeToShow}

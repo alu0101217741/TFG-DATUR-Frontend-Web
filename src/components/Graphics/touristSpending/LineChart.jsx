@@ -38,7 +38,7 @@ function LineChart({ data }) {
     },
     yAxis: {
       title: {
-        text: "Gasto total",
+        text: "Gasto total (€)",
       },
     },
     plotOptions: {
@@ -47,6 +47,9 @@ function LineChart({ data }) {
           enabled: true,
         },
       },
+    },
+    tooltip: {
+      valueSuffix: " €",
     },
     credits: {
       enabled: false,

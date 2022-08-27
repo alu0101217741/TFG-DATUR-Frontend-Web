@@ -80,6 +80,9 @@ function BasicColumnSpendChart({ data }) {
         depth: 35,
       },
     },
+    tooltip: {
+      valueSuffix: " €",
+    },
     credits: {
       enabled: false,
     },

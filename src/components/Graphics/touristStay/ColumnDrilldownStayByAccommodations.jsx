@@ -226,9 +226,14 @@ function ColumnDrilldownStayByAccommodations({ data }) {
   return (
     <div>
       <div className="mt-4">
-        <h3>Estancia media por alojamiento</h3>
+        <h3>Estancia media según tipo de alojamiento</h3>
         <div className="mt-4">
-          <p>DECIR QUE SE ORDENAN DE MAYOR A MENOR AUTOMATICAMENTE</p>
+          <p>
+            Esta gráfica incluye información sobre la estancia media según el
+            tipo de alojamiento. Además, pulsando sobre las columnas, se puede
+            conocer la estancia media de las principales nacionalidades en el
+            tipo de alojamiento seleccionado .
+          </p>
           <DropdownButton
             title={"Año: " + activeYear}
             onSelect={handleSelect}
