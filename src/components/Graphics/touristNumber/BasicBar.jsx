@@ -54,6 +54,20 @@ function BasicBar({ data }) {
         },
       },
     },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
+    },
     credits: {
       enabled: false,
     },
@@ -80,11 +94,8 @@ function BasicBar({ data }) {
     const firstData = formattedDataAux.slice(0, 1).flat();
 
     const islands = firstData.map((item) => item.island);
-    console.log(islands);
 
     const touristsByIsland = firstData.map((item) => item.tourists);
-
-    console.log(touristsByIsland);
 
     setChartOptions({
       title: {

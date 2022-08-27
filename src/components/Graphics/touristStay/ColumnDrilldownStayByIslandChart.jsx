@@ -130,8 +130,6 @@ function ColumnDrilldownStayByIslandChart({ data }) {
 
       const firstData = dataSelected[0];
 
-      console.log(firstData);
-
       const mainData = firstData.stayByIsland.sort(compare).map((item, i) => {
         return {
           name: item.island,
@@ -155,8 +153,6 @@ function ColumnDrilldownStayByIslandChart({ data }) {
             }),
         };
       });
-
-      console.log(secondaryData);
 
       setChartOptions({
         title: {

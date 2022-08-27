@@ -84,6 +84,20 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
         size: "110%",
       },
     },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
+    },
     credits: {
       enabled: false,
     },

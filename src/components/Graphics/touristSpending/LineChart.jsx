@@ -17,7 +17,7 @@ const PeriodTime = {
 };
 
 function LineChart({ data }) {
-  const [chartTypeToShow, setchartTypeToShow] = useState("lineas");
+  const [chartTypeToShow, setchartTypeToShow] = useState("líneas");
 
   const [dataForYears, setDataForYears] = useState();
 
@@ -50,6 +50,20 @@ function LineChart({ data }) {
     },
     tooltip: {
       valueSuffix: " €",
+    },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
     },
     credits: {
       enabled: false,

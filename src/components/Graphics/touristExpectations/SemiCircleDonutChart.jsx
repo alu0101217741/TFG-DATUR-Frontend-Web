@@ -91,6 +91,20 @@ function SemiCircleDonutChart({ data }) {
         size: "110%",
       },
     },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
+    },
     credits: {
       enabled: false,
     },
@@ -129,6 +143,20 @@ function SemiCircleDonutChart({ data }) {
       column: {
         pointPadding: 0.2,
         borderWidth: 0,
+      },
+    },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
       },
     },
     credits: {

@@ -83,6 +83,20 @@ function BasicColumnSpendChart({ data }) {
     tooltip: {
       valueSuffix: " €",
     },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
+    },
     credits: {
       enabled: false,
     },

@@ -69,6 +69,20 @@ function BasicColumnAverageSpendChart({ data }) {
         borderWidth: 0,
       },
     },
+   exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
+    },
     credits: {
       enabled: false,
     },

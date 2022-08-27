@@ -11,7 +11,7 @@ const ChartType = {
 };
 
 function LineChart({ data }) {
-  const [chartTypeToShow, setchartTypeToShow] = useState("lineas");
+  const [chartTypeToShow, setchartTypeToShow] = useState("líneas");
 
   const [chartOptions, setChartOptions] = useState({
     chart: {
@@ -38,6 +38,20 @@ function LineChart({ data }) {
     },
     tooltip: {
       valueSuffix: " días",
+    },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
     },
     credits: {
       enabled: false,

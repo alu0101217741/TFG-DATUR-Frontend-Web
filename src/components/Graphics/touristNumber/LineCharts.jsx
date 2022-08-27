@@ -11,7 +11,7 @@ const ChartType = {
 };
 
 function LineCharts({ data }) {
-  const [chartTypeToShow, setchartTypeToShow] = useState("lineas");
+  const [chartTypeToShow, setchartTypeToShow] = useState("líneas");
 
   const [chartOptions, setChartOptions] = useState({
     chart: {
@@ -40,6 +40,20 @@ function LineCharts({ data }) {
           connectorAllowed: false,
         },
         pointStart: 2010,
+      },
+    },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
       },
     },
     credits: {
@@ -96,6 +110,10 @@ function LineCharts({ data }) {
       <div className="mt-4">
         <h3>Evolución del número de turistas</h3>
         <div className="mt-3">
+          <p>
+            Se representa la evolución que ha experimentado la cifra anual de
+            turistas que visitan las Islas Canarias.
+          </p>
           <DropdownButton
             title={"Tipo de gráfico: " + chartTypeToShow}
             onSelect={handleSelect}

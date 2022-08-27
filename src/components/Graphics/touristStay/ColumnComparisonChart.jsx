@@ -79,7 +79,18 @@ function ColumnComparisonChart({ data }) {
       },
     ],
     exporting: {
-      allowHTML: true,
+      buttons: {
+        contextButton: {
+          menuItems: [
+            "viewFullscreen",
+            "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
+          ],
+        },
+      },
     },
     credits: {
       enabled: false,

@@ -1,15 +1,11 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import drilldown from "highcharts/modules/drilldown";
-import exportdata from "highcharts/modules/export-data";
-import exporting from "highcharts/modules/exporting";
 import React, { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 drilldown(Highcharts);
-exporting(Highcharts);
-exportdata(Highcharts);
 
 const COLORS = [
   "#2f7ed8",
@@ -87,12 +83,12 @@ function ColumnDrilldownStayByAccommodations({ data }) {
       buttons: {
         contextButton: {
           menuItems: [
-            "downloadPNG",
-            "downloadJPEG",
-            "downloadPDF",
-            "downloadSVG",
             "viewFullscreen",
             "printChart",
+            "downloadPDF",
+            "downloadPNG",
+            "downloadJPEG",
+            "downloadSVG",
           ],
         },
       },
