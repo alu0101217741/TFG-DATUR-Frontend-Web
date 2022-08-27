@@ -5,6 +5,21 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import "./SemiCircleDonutChart.css";
 
+const MONTHS = {
+  JANUARY: "Enero",
+  FEBRUARY: "Febrero",
+  MARCH: "Marzo",
+  APRIL: "Abril",
+  MAY: "Mayo",
+  JUNE: "Junio",
+  JULY: "Julio",
+  AUGUST: "Agosto",
+  SEPTEMBER: "Septiembre",
+  OCTUBER: "Octubre",
+  NOVEMBER: "Noviembre",
+  DECEMBER: "Diciembre",
+};
+
 function trimesterMapper(trimesterInNumber) {
   switch (trimesterInNumber) {
     case "01":
@@ -28,6 +43,10 @@ function SemiCircleDonutChart({ data }) {
     decrease: "",
     stability: "",
   });
+
+  const [secondChartExplication, setSecondChartExplication] = useState([]);
+
+  const [chartMonths, setChartMonths] = useState([]);
 
   const [chartOptions, setChartOptions] = useState({
     chart: {
@@ -83,13 +102,12 @@ function SemiCircleDonutChart({ data }) {
       shadow: true,
     },
     title: {
-      text: "Grado de ocupación previsto para cada mes",
+      text: "Índice de ocupación previsto para cada mes",
     },
     subtitle: {
-      text: "Fuente: Instituto Canario de Estadística",
+      text: 'Fuente: <a target="_blank" href="http://www.gobiernodecanarias.org/istac/">Instituto Canario de Estadística</a>',
     },
     xAxis: {
-      categories: ["1º mes", "2º mes", "3º mes"],
       crosshair: true,
     },
     yAxis: {
@@ -126,6 +144,19 @@ function SemiCircleDonutChart({ data }) {
 
       const trimester = trimesterMapper(dataSelected.trimester.slice(5));
 
+      let chartMonths;
+
+      if (trimester === "primer")
+        chartMonths = [MONTHS.JANUARY, MONTHS.FEBRUARY, MONTHS.MARCH];
+      if (trimester === "segundo")
+        chartMonths = [MONTHS.APRIL, MONTHS.MAY, MONTHS.JUNE];
+      if (trimester === "tercer")
+        chartMonths = [MONTHS.JULY, MONTHS.AUGUST, MONTHS.SEPTEMBER];
+      if (trimester === "cuarto")
+        chartMonths = [MONTHS.OCTUBER, MONTHS.NOVEMBER, MONTHS.DECEMBER];
+
+      setChartMonths(chartMonths);
+
       const dataToFirstChart = [
         dataSelected.occupancyRateTrend.increase,
         dataSelected.occupancyRateTrend.decrease,
@@ -137,6 +168,8 @@ function SemiCircleDonutChart({ data }) {
           return month.occupancyRate;
         }
       );
+
+      setSecondChartExplication(dataForSecondChart);
 
       setChartOptions({
         series: [
@@ -161,6 +194,9 @@ function SemiCircleDonutChart({ data }) {
             color: "#2f7ed8",
           },
         ],
+        xAxis: {
+          categories: chartMonths,
+        },
       });
 
       setChartExplication({
@@ -182,13 +218,19 @@ function SemiCircleDonutChart({ data }) {
         </h3>
         <div className="mt-3 semicircle-style">
           <p>
-            En cuanto a la tendencia del grado de ocupación para el{" "}
+            Analizando la tendencia del grado de ocupación para el{" "}
             {chartExplication.trimester} trimestre de{" "}
             {chartExplication.previousYear + 1}, en relación a{" "}
             {chartExplication.previousYear}, el {chartExplication.increase}% de
             los hosteleros piensa que subirá, mientras que el{" "}
-            {chartExplication.decrease}% opina que descenderá, por último el{" "}
-            {chartExplication.stability}% considera que no cambiará.
+            {chartExplication.decrease}% opina que descenderá, por último, el{" "}
+            {chartExplication.stability}% considera que no cambiará. Además, los
+            hosteleros esperan que para el mes de{" "}
+            {chartMonths[0]?.toLowerCase()} el índice de ocupación hotelera se
+            sitúe en el {secondChartExplication[0]}%, para{" "}
+            {chartMonths[1]?.toLowerCase()} en el {secondChartExplication[1]}% y
+            para {chartMonths[2]?.toLowerCase()} en el{" "}
+            {secondChartExplication[2]}%.
           </p>
           <Row>
             <Col xs={12} lg={6}>

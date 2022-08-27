@@ -43,6 +43,8 @@ function SemiCircleDonutChartBussinesChart({ data }) {
     desfavorable: "",
   });
 
+  const [hotelConfidenceIndexes, setHotelConfidenceIndexes] = useState([]);
+
   const [chartOptions, setChartOptions] = useState({
     chart: {
       plotBackgroundColor: null,
@@ -151,6 +153,8 @@ function SemiCircleDonutChartBussinesChart({ data }) {
         previousData.hotelConfidenceIndex,
       ];
 
+      setHotelConfidenceIndexes(hotelConfidenceIndexes);
+
       setChartExplication({
         trimester: trimesterLabelMapper(dataSelected.trimester, false),
         previousYear: Number(year) - 1,
@@ -197,12 +201,16 @@ function SemiCircleDonutChartBussinesChart({ data }) {
         <h3>Marcha del negocio {chartExplication.trimester}</h3>
         <div className="mt-3 semicircle-style">
           <p>
-            En cuanto a la marcha del negocio para el{" "}
+            Estudiando la marcha del negocio para el{" "}
             {chartExplication.trimester}, en relación a{" "}
             {chartExplication.previousYear}, el {chartExplication.favorable}% de
             los hosteleros piensa que será favorable, mientras que el{" "}
             {chartExplication.desfavorable}% opina que será desfavorable, por
-            último el {chartExplication.normal}% considera que será normal.
+            último, el {chartExplication.normal}% considera que será normal. El
+            Índice de Confianza Hotelera (ICH), aumenta respecto al{" "}
+            {chartExplication.trimester.split(" ")[0]} trimestre de{" "}
+            {chartExplication.previousYear} pasando de{" "}
+            {hotelConfidenceIndexes[1]} a {hotelConfidenceIndexes[0]}.
           </p>
           <Row>
             <Col xs={12} lg={6}>

@@ -84,6 +84,9 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
         size: "110%",
       },
     },
+    credits: {
+      enabled: false,
+    },
   });
 
   const [mainFactorsExpectations, setMainFactorsExpectations] = useState();
@@ -203,13 +206,13 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
         <h3>Factores de la marcha del negocio</h3>
         <div className="mt-3 semicircle-style">
           <p>
-            En cuanto a la factores de la marcha del negocio para el{" "}
+            En cuanto a los factores de la marcha del negocio para el{" "}
             {chartExplication.trimester} trimestre de{" "}
             {chartExplication.previousYear + 1}, considerando la opción
             seleccionada <b>{activeFactor}</b>, el {chartExplication.increase}%
-            de los hosteleros piensa que subirá, mientras que el{" "}
-            {chartExplication.decrease}% opina que descenderá, por último el{" "}
-            {chartExplication.stability}% considera que no cambiará.
+            de los hosteleros piensa que aumentará, mientras que el{" "}
+            {chartExplication.decrease}% opina que descenderá, por último, el{" "}
+            {chartExplication.stability}% considera que se mantendrá estable.
           </p>
           <DropdownButton
             title={activeFactor}
