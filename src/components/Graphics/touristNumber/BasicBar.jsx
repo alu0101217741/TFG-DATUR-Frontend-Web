@@ -91,7 +91,7 @@ function BasicBar({ data }) {
 
     setChartOptions({
       title: {
-        text: `Distribución de turistas por isla en ${years[0]}`, // Ponerlo
+        text: `Distribución de turistas por isla en ${years[0]}`,
       },
       xAxis: {
         categories: islands,
@@ -101,8 +101,9 @@ function BasicBar({ data }) {
       },
       series: [
         {
-          name: "Número de turistas", // Ponerlo ordenado
+          name: "Número de turistas",
           data: touristsByIsland,
+          color: "#2f7ed8",
         },
       ],
     });
@@ -121,7 +122,7 @@ function BasicBar({ data }) {
 
     setChartOptions({
       title: {
-        text: `Distribución de turistas por isla en ${year}`, // Ponerlo
+        text: `Distribución de turistas por isla en ${year}`,
       },
       xAxis: {
         categories: dataToBeShow.map((item) => item.island),
@@ -131,7 +132,7 @@ function BasicBar({ data }) {
       },
       series: [
         {
-          name: "Número de turistas", // Ponerlo ordenado
+          name: "Número de turistas",
           data: dataToBeShow.map((item) => item.tourists),
         },
       ],
@@ -140,61 +141,61 @@ function BasicBar({ data }) {
 
   return (
     <div>
-      <Container className="mt-4">
+      <div className="mt-4">
         <h3>Distribución de los turistas</h3>
-        <Container className="mt-3">
+        <div className="mt-3">
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book.
           </p>
-          <ButtonGroup
-            aria-label="Years to be paint in the graph"
-            className="mx-auto center-custom-button"
-          >
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[3]);
-              }}
-              className={activeYear === years[3] ? "active" : ""}
+          <Container>
+            <ButtonGroup
+              aria-label="Years to be paint in the graph"
+              className="center-custom-button"
             >
-              {years[3]}
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[2]);
-              }}
-              className={activeYear === years[2] ? "active" : ""}
-            >
-              {years[2]}
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[1]);
-              }}
-              className={activeYear === years[1] ? "active" : ""}
-            >
-              {years[1]}
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => {
-                updateChartWithYear(years[0]);
-              }}
-              className={activeYear === years[0] ? "active" : ""}
-            >
-              {years[0]}
-            </Button>
-          </ButtonGroup>
-        </Container>
-        <Container>
-          <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-        </Container>
-      </Container>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  updateChartWithYear(years[3]);
+                }}
+                className={activeYear === years[3] ? "active" : ""}
+              >
+                {years[3]}
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  updateChartWithYear(years[2]);
+                }}
+                className={activeYear === years[2] ? "active" : ""}
+              >
+                {years[2]}
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  updateChartWithYear(years[1]);
+                }}
+                className={activeYear === years[1] ? "active" : ""}
+              >
+                {years[1]}
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  updateChartWithYear(years[0]);
+                }}
+                className={activeYear === years[0] ? "active" : ""}
+              >
+                {years[0]}
+              </Button>
+            </ButtonGroup>
+          </Container>
+        </div>
+        <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+      </div>
     </div>
   );
 }
