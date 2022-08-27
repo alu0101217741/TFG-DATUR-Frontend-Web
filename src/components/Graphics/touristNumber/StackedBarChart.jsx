@@ -216,6 +216,19 @@ function StackedBarChart({ data }) {
       ];
     }
 
+    console.log(chartType.type);
+
+    const tooltip =
+      chartType.type === "bar"
+        ? {
+            crosshairs: false,
+            shared: false,
+          }
+        : {
+            crosshairs: true,
+            shared: true,
+          };
+
     setChartOptions({
       title: {
         text: `Rankings de nacionalidades en ${year}`,
@@ -225,6 +238,7 @@ function StackedBarChart({ data }) {
       },
       chart,
       series,
+      tooltip,
     });
   };
 
