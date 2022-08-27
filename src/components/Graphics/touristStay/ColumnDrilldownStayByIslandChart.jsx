@@ -52,6 +52,9 @@ function ColumnDrilldownStayByIslandChart({ data }) {
           format: "{point.y} días",
         },
       },
+      column: {
+        borderRadius: 5,
+      },
     },
 
     tooltip: {

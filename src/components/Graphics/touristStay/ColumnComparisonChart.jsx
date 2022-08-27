@@ -9,27 +9,27 @@ const COUNTRIES = [
   {
     name: "Alemania",
     flag: "de",
-    color: "rgb(201, 36, 39)",
+    color: "#2f7ed8",
   },
   {
     name: "España",
     flag: "es",
-    color: "rgb(201, 36, 39)",
+    color: "#f28f43",
   },
   {
     name: "Reino Unido",
     flag: "gb",
-    color: "rgb(0, 82, 180)",
+    color: "#492970",
   },
   {
     name: "Países Nórdicos",
     flag: "pn",
-    color: "rgb(0, 0, 0)",
+    color: "#c42525",
   },
   {
     name: "Otros países",
     flag: "op",
-    color: "rgb(240, 240, 240)",
+    color: "#0DAF12",
   },
 ];
 
@@ -37,6 +37,7 @@ function ColumnComparisonChart({ data }) {
   const [dataSelected, setDataSelected] = useState([]);
   const [years, setYears] = useState([]);
   const [activeYear, setActiveYear] = useState();
+  const [comparativeYear, setComparativeYear] = useState();
   const [chartOptions, setChartOptions] = useState({
     chart: {
       type: "column",
@@ -46,6 +47,11 @@ function ColumnComparisonChart({ data }) {
       series: {
         grouping: false,
         borderWidth: 0,
+      },
+      column: {
+        borderRadius: 6,
+        borderWidth: 0.5,
+        borderColor: "#000000",
       },
     },
     legend: {
@@ -75,101 +81,102 @@ function ColumnComparisonChart({ data }) {
     exporting: {
       allowHTML: true,
     },
+    credits: {
+      enabled: false,
+    },
   });
 
   useEffect(() => {
-    const dataSelected = data.map((item) => {
-      return {
-        year: item.year,
-        stayByResidencePlaces: item.stayByResidencePlaces,
-      };
-    });
-
-    const years = dataSelected.map((item) => item.year.toString());
-
-    setDataSelected(dataSelected);
-
-    setYears(years);
-
-    setActiveYear(years[0]);
-
-    const firstData = dataSelected.slice(0, 1).flat();
-
-    const secondData = dataSelected.slice(1, 2).flat();
-
-    const firstDataToBeShow = firstData.map((element) => {
-      return element.stayByResidencePlaces.map((item) => {
-        return [item.residencePlace, item.averageStay];
+    if (data.length > 0) {
+      const dataSelected = data.map((item) => {
+        return {
+          year: item.year,
+          stayByResidencePlaces: item.stayByResidencePlaces,
+        };
       });
-    });
 
-    const firstDataName = firstData.map((element) => {
-      return element.year;
-    });
+      const years = dataSelected.map((item) => item.year.toString());
 
-    const secondDataToBeShow = secondData.map((element) => {
-      return element.stayByResidencePlaces.map((item) => {
-        return [item.residencePlace, item.averageStay];
-      });
-    });
+      setDataSelected(dataSelected);
 
-    const secondDataName = secondData.map((element) => {
-      return element.year;
-    });
+      setYears(years);
 
-    setChartOptions({
-      title: {
-        text: `Estancia media según lugar de residencia en ${years[0]}`,
-        align: "center",
-      },
-      subtitle: {
-        text: `Comparando los resultados con ${years[0] - 1}`,
-        align: "center",
-      },
-      series: [
-        {
-          color: "rgb(158, 159, 163)",
-          pointPlacement: -0.2,
-          linkedTo: "main",
-          data: secondDataToBeShow[0],
-          name: secondDataName,
+      setActiveYear(years[0]);
+
+      setComparativeYear(years[1]);
+
+      const firstData = dataSelected[0];
+
+      const secondData = dataSelected[1];
+
+      const firstDataToBeShow = firstData.stayByResidencePlaces.map(
+        (element) => {
+          return [element.residencePlace, element.averageStay];
+        }
+      );
+
+      const firstDataName = firstData.year;
+
+      const secondDataToBeShow = secondData.stayByResidencePlaces.map(
+        (element) => {
+          return [element.residencePlace, element.averageStay];
+        }
+      );
+
+      const secondDataName = secondData.year;
+
+      setChartOptions({
+        title: {
+          text: `Estancia media según lugar de residencia en ${years[0]}`,
+          align: "center",
         },
-        {
-          name: firstDataName,
-          id: "main",
-          dataSorting: {
-            enabled: true,
-            matchByName: true,
+        subtitle: {
+          text: `Comparando los resultados con ${years[0] - 1}`,
+          align: "center",
+        },
+        series: [
+          {
+            color: "rgb(158, 159, 163)",
+            pointPlacement: -0.2,
+            linkedTo: "main",
+            data: secondDataToBeShow,
+            name: secondDataName,
           },
-          dataLabels: [
-            {
+          {
+            name: firstDataName,
+            id: "main",
+            dataSorting: {
               enabled: true,
-              inside: true,
-              style: {
-                fontSize: "16px",
-              },
+              matchByName: true,
             },
-          ],
-          data: getData(firstDataToBeShow)[0],
-        },
-      ],
-    });
+            dataLabels: [
+              {
+                enabled: true,
+                inside: true,
+                style: {
+                  fontSize: "16px",
+                },
+              },
+            ],
+            data: getData(firstDataToBeShow),
+          },
+        ],
+      });
+    }
   }, [data]);
 
   const getData = (data) =>
-    data.map((item) => {
-      return item.map((country, i) => ({
-        name: country[0],
-        y: country[1],
+    data.map((item, i) => {
+      return {
+        name: item[0],
+        y: item[1],
         color: COUNTRIES[i].color,
-      }));
+      };
     });
 
-  const handleSelect = (year) => {
-    setActiveYear(year);
-
+  const handleSelect = (year, comparativeYear) => {
     const indexActualYear = years.indexOf(year);
-    const indexPreviousYear = indexActualYear + 1;
+    const indexPreviousYear = years.indexOf(comparativeYear);
 
     const actualDataToBeShow = dataSelected[
       indexActualYear
@@ -183,7 +190,7 @@ function ColumnComparisonChart({ data }) {
         align: "center",
       },
       subtitle: {
-        text: `Comparando los resultados con ${year - 1}`,
+        text: `Comparando los resultados con ${comparativeYear}`,
         align: "center",
       },
       series: [
@@ -200,6 +207,7 @@ function ColumnComparisonChart({ data }) {
         },
         {
           name: dataSelected[indexActualYear].year.toString(),
+
           id: "main",
           dataSorting: {
             enabled: true,
@@ -214,36 +222,57 @@ function ColumnComparisonChart({ data }) {
               },
             },
           ],
-          data: getData([actualDataToBeShow])[0],
+          data: getData(actualDataToBeShow),
         },
       ],
     });
   };
 
+  const handleActiveYear = (activeYearSelected) => {
+    setActiveYear(activeYearSelected);
+    handleSelect(activeYearSelected, comparativeYear);
+  };
+
+  const handleComparativeYear = (comparativeYearSelected) => {
+    setComparativeYear(comparativeYearSelected);
+    handleSelect(activeYear, comparativeYearSelected);
+  };
+
   return (
     <div>
       {
-        <Container className="mt-4">
+        <div className="mt-4 text-style">
           <h3>Estancia media según lugar de residencia</h3>
-          <Container>
+          <div className="mt-3">
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book.
             </p>
-            <DropdownButton
-              title={activeYear}
-              onSelect={handleSelect}
-              className="dropdown-button-center"
-            >
-              {years.map((year) => (
-                <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
-              ))}
-            </DropdownButton>
+            <Container className="center-buttons">
+              <DropdownButton
+                title={"Año: " + activeYear}
+                onSelect={handleActiveYear}
+                className="d-inline mx-2"
+              >
+                {years.map((year) => (
+                  <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
+                ))}
+              </DropdownButton>
+              <DropdownButton
+                title={"Comparando con: " + comparativeYear}
+                onSelect={handleComparativeYear}
+                className="d-inline mx-2"
+              >
+                {years.map((year) => (
+                  <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
+                ))}
+              </DropdownButton>
+            </Container>
             <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-          </Container>
-        </Container>
+          </div>
+        </div>
       }
     </div>
   );

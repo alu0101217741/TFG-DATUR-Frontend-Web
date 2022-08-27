@@ -220,8 +220,8 @@ function StackedBarChart({ data }) {
       xAxis: {
         categories: dataToBeShow.map((item) => item.country), // Countries
       },
-      chart: chart,
-      series: series,
+      chart,
+      series,
     });
   };
 
