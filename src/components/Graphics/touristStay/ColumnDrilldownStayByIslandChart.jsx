@@ -73,7 +73,6 @@ function ColumnDrilldownStayByIslandChart({ data }) {
         borderRadius: 5,
       },
     },
-
     tooltip: {
       headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
       pointFormat:
@@ -93,9 +92,6 @@ function ColumnDrilldownStayByIslandChart({ data }) {
         },
       },
     },
-    credits: {
-      enabled: false,
-    },
     drilldown: {
       breadcrumbs: {
         position: {
@@ -109,6 +105,9 @@ function ColumnDrilldownStayByIslandChart({ data }) {
         colorByPoint: true,
       },
     ],
+    credits: {
+      enabled: false,
+    },
   });
 
   useEffect(() => {
@@ -234,7 +233,9 @@ function ColumnDrilldownStayByIslandChart({ data }) {
             className="dropdown-button-center"
           >
             {years.map((year) => (
-              <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
+              <Dropdown.Item eventKey={year} key={year}>
+                {year}
+              </Dropdown.Item>
             ))}
           </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />

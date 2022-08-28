@@ -138,7 +138,7 @@ function StackedBarChart({ data }) {
         text: `Rankings de nacionalidades en ${years[0]}`,
       },
       xAxis: {
-        categories: countries, // Countries
+        categories: countries,
       },
       series: [
         {
@@ -246,7 +246,7 @@ function StackedBarChart({ data }) {
         text: `Rankings de nacionalidades en ${year}`,
       },
       xAxis: {
-        categories: dataToBeShow.map((item) => item.country), // Countries
+        categories: dataToBeShow.map((item) => item.country),
       },
       chart,
       series,

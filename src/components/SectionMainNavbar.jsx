@@ -24,7 +24,7 @@ function SectionMainNavbar({ activeLink }) {
         </Navbar>
       </div>
       <div className="d-lg-none">
-        <Navbar clasName="navbar-bg" key="lg" expand="lg">
+        <Navbar className="navbar-bg" key="lg" expand="lg">
           <Container>
             <Navbar.Brand className="navbar-name" href="/">
               Turismo

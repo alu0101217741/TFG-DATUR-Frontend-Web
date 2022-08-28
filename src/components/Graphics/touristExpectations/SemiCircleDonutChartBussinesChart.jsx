@@ -9,23 +9,23 @@ function trimesterMapper(trimester) {
   return previousYear + trimester.slice(4);
 }
 
-function trimesterLabelMapper(trimester, capitalLetter) {
+function trimesterLabelMapper(trimester) {
   const trimesterInNumber = trimester.slice(5);
   const year = trimester.slice(0, 4);
 
   let label;
   switch (trimesterInNumber) {
     case "01":
-      label = capitalLetter ? "Primer trimestre" : "primer trimestre";
+      label = "Primer trimestre";
       break;
     case "04":
-      label = capitalLetter ? "Segundo trimestre" : "segundo trimestre";
+      label = "Segundo trimestre";
       break;
     case "07":
-      label = capitalLetter ? "Tercer trimestre" : "tercer trimestre";
+      label = "Tercer trimestre";
       break;
     case "10":
-      label = capitalLetter ? "Cuarto trimestre" : "cuarto trimestre";
+      label = "Cuarto trimestre";
       break;
     default:
       label = "Trimestre no válido";
@@ -184,7 +184,7 @@ function SemiCircleDonutChartBussinesChart({ data }) {
       setHotelConfidenceIndexes(hotelConfidenceIndexes);
 
       setChartExplication({
-        trimester: trimesterLabelMapper(dataSelected.trimester, false),
+        trimester: trimesterLabelMapper(dataSelected.trimester),
         previousYear: Number(year) - 1,
         favorable: businessTendencyFirstChart[0][1],
         normal: businessTendencyFirstChart[1][1],
@@ -198,6 +198,7 @@ function SemiCircleDonutChartBussinesChart({ data }) {
             name: "Expectativa marcha del negocio",
             innerSize: "50%",
             data: businessTendencyFirstChart,
+            colors: ["#10A610", "#F28F43", "#B52323"],
           },
         ],
       });
@@ -205,8 +206,8 @@ function SemiCircleDonutChartBussinesChart({ data }) {
       setSecondChartOptions({
         xAxis: {
           categories: [
-            trimesterLabelMapper(dataSelected.trimester, true),
-            trimesterLabelMapper(previousData.trimester, true),
+            trimesterLabelMapper(dataSelected.trimester),
+            trimesterLabelMapper(previousData.trimester),
           ],
           title: {
             text: null,
@@ -229,15 +230,15 @@ function SemiCircleDonutChartBussinesChart({ data }) {
         <h3>Marcha del negocio {chartExplication.trimester}</h3>
         <div className="mt-3 semicircle-style">
           <p>
-            Estudiando la marcha del negocio para el{" "}
-            {chartExplication.trimester}, en relación a{" "}
+            Estudiando la <b>marcha del negocio</b> para el{" "}
+            {chartExplication.trimester.toLowerCase()}, en relación a{" "}
             {chartExplication.previousYear}, el {chartExplication.favorable}% de
             los hosteleros piensa que será favorable, mientras que el{" "}
             {chartExplication.desfavorable}% opina que será desfavorable, por
-            último, el {chartExplication.normal}% considera que será normal. El
-            Índice de Confianza Hotelera (ICH), aumenta respecto al{" "}
-            {chartExplication.trimester.split(" ")[0]} trimestre de{" "}
-            {chartExplication.previousYear} pasando de{" "}
+            último, el {chartExplication.normal}% considera que será normal. El{" "}
+            <b>Índice de Confianza Hotelera (ICH)</b>, aumenta respecto al{" "}
+            {chartExplication.trimester.split(" ")[0].toLowerCase()} trimestre
+            de {chartExplication.previousYear} pasando de{" "}
             {hotelConfidenceIndexes[1]} a {hotelConfidenceIndexes[0]}.
           </p>
           <Row>

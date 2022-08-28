@@ -3,7 +3,6 @@ import HighchartsReact from "highcharts-react-official";
 import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import "./SemiCircleDonutChart.css";
 
 const MONTHS = {
   JANUARY: "Enero",
@@ -207,9 +206,10 @@ function SemiCircleDonutChart({ data }) {
             innerSize: "50%",
             data: [
               ["Aumento", dataToFirstChart[0]],
-              ["Descenso", dataToFirstChart[1]],
               ["Estabilidad", dataToFirstChart[2]],
+              ["Descenso", dataToFirstChart[1]],
             ],
+            colors: ["#10A610", "#F28F43", "#B52323"],
           },
         ],
       });
@@ -246,7 +246,7 @@ function SemiCircleDonutChart({ data }) {
         </h3>
         <div className="mt-3 semicircle-style">
           <p>
-            Analizando la tendencia del grado de ocupación para el{" "}
+            Analizando la tendencia del <b>grado de ocupación</b> para el{" "}
             {chartExplication.trimester} trimestre de{" "}
             {chartExplication.previousYear + 1}, en relación a{" "}
             {chartExplication.previousYear}, el {chartExplication.increase}% de
@@ -254,8 +254,8 @@ function SemiCircleDonutChart({ data }) {
             {chartExplication.decrease}% opina que descenderá, por último, el{" "}
             {chartExplication.stability}% considera que no cambiará. Además, los
             hosteleros esperan que para el mes de{" "}
-            {chartMonths[0]?.toLowerCase()} el índice de ocupación hotelera se
-            sitúe en el {secondChartExplication[0]}%, para{" "}
+            {chartMonths[0]?.toLowerCase()} el <b>índice de ocupación</b>{" "}
+            hotelera se sitúe en el {secondChartExplication[0]}%, para{" "}
             {chartMonths[1]?.toLowerCase()} en el {secondChartExplication[1]}% y
             para {chartMonths[2]?.toLowerCase()} en el{" "}
             {secondChartExplication[2]}%.

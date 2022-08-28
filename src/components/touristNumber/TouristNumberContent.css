@@ -4,7 +4,8 @@
   font-size: 45px;
 }
 
-.text-style p {
+.text-style p,
+b {
   font-family: "Roboto";
 }
 

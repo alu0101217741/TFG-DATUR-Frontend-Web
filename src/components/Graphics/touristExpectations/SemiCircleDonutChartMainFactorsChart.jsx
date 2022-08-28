@@ -121,12 +121,12 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
           dataSelected.mainFactorsExpectations.businessVolume.increase,
         ],
         [
-          "Descenso",
-          dataSelected.mainFactorsExpectations.businessVolume.decline,
-        ],
-        [
           "Estabilidad",
           dataSelected.mainFactorsExpectations.businessVolume.stability,
+        ],
+        [
+          "Descenso",
+          dataSelected.mainFactorsExpectations.businessVolume.decline,
         ],
       ];
 
@@ -134,8 +134,8 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
         trimester: trimester,
         previousYear: Number(year) - 1,
         increase: chartValue[0][1],
-        decrease: chartValue[1][1],
-        stability: chartValue[2][1],
+        stability: chartValue[1][1],
+        decrease: chartValue[2][1],
       });
 
       setActiveFactor(MainFactors.BUSINESS_VOLUME);
@@ -150,6 +150,7 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
             name: "Expectativa marcha del negocio",
             innerSize: "50%",
             data: chartValue,
+            colors: ["#10A610", "#F28F43", "#B52323"],
           },
         ],
       });
@@ -185,16 +186,16 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
 
     const chartValue = [
       ["Aumento", mainFactors.increase],
-      ["Descenso", mainFactors.decline],
       ["Estabilidad", mainFactors.stability],
+      ["Descenso", mainFactors.decline],
     ];
 
     setChartExplication({
       trimester: chartExplication.trimester,
       previousYear: chartExplication.previousYear,
       increase: chartValue[0][1],
-      decrease: chartValue[1][1],
-      stability: chartValue[2][1],
+      stability: chartValue[1][1],
+      decrease: chartValue[2][1],
     });
 
     setActiveFactor(mainFactorSelected);
@@ -209,6 +210,7 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
           name: "Expectativa marcha del negocio",
           innerSize: "50%",
           data: chartValue,
+          colors: ["#10A610", "#F28F43", "#B52323"],
         },
       ],
     });
@@ -220,7 +222,7 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
         <h3>Factores de la marcha del negocio</h3>
         <div className="mt-3 semicircle-style">
           <p>
-            En cuanto a los factores de la marcha del negocio para el{" "}
+            En cuanto a los <b>factores de la marcha del negocio</b> para el{" "}
             {chartExplication.trimester} trimestre de{" "}
             {chartExplication.previousYear + 1}, considerando la opción
             seleccionada <b>{activeFactor}</b>, el {chartExplication.increase}%
@@ -229,7 +231,7 @@ function SemiCircleDonutChartMainFactorsChart({ data }) {
             {chartExplication.stability}% considera que se mantendrá estable.
           </p>
           <DropdownButton
-            title={activeFactor}
+            title={"Factor: " + activeFactor}
             onSelect={handleSelect}
             className="dropdown-button-center"
           >

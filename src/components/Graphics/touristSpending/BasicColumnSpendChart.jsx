@@ -164,7 +164,9 @@ function BasicColumnSpendChart({ data }) {
             className="dropdown-button-center"
           >
             {years.map((year) => (
-              <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
+              <Dropdown.Item eventKey={year} key={year}>
+                {year}
+              </Dropdown.Item>
             ))}
           </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />

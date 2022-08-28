@@ -73,7 +73,6 @@ function ColumnDrilldownStayByAccommodations({ data }) {
         borderRadius: 5,
       },
     },
-
     tooltip: {
       headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
       pointFormat:
@@ -93,9 +92,6 @@ function ColumnDrilldownStayByAccommodations({ data }) {
         },
       },
     },
-    credits: {
-      enabled: false,
-    },
     drilldown: {
       breadcrumbs: {
         position: {
@@ -109,6 +105,9 @@ function ColumnDrilldownStayByAccommodations({ data }) {
         colorByPoint: true,
       },
     ],
+    credits: {
+      enabled: false,
+    },
   });
 
   useEffect(() => {
@@ -228,7 +227,7 @@ function ColumnDrilldownStayByAccommodations({ data }) {
             Esta gráfica incluye información sobre la estancia media según el
             tipo de alojamiento. Además, pulsando sobre las columnas, se puede
             conocer la estancia media de las principales nacionalidades en el
-            tipo de alojamiento seleccionado .
+            tipo de alojamiento seleccionado.
           </p>
           <DropdownButton
             title={"Año: " + activeYear}
@@ -236,7 +235,9 @@ function ColumnDrilldownStayByAccommodations({ data }) {
             className="dropdown-button-center"
           >
             {years.map((year) => (
-              <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
+              <Dropdown.Item eventKey={year} key={year}>
+                {year}
+              </Dropdown.Item>
             ))}
           </DropdownButton>
           <HighchartsReact highcharts={Highcharts} options={chartOptions} />

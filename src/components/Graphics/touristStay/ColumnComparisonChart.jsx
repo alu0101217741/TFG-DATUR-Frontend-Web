@@ -251,44 +251,46 @@ function ColumnComparisonChart({ data }) {
 
   return (
     <div>
-      {
-        <div className="mt-4">
-          <h3>Estancia media según lugar de residencia</h3>
-          <div className="mt-3">
-            <p>
-              Se muestra el número de días que permanecen de media los turistas
-              en Canarias según su país de origen. Se ofrece la posibilidad de
-              visualizar esta información para una gran cantidad de años, además
-              también se permite comparar la información del año seleccionado
-              con cualquier otro dentro de los disponibles. Cabe destacar que en
-              la fuente oficial sólo existían datos para España a partir de
-              2019, por ello en las gráficas esta columna se muestra a cero para
-              años anteriores.
-            </p>
-            <Container className="center-buttons">
-              <DropdownButton
-                title={"Año: " + activeYear}
-                onSelect={handleActiveYear}
-                className="d-inline mx-2"
-              >
-                {years.map((year) => (
-                  <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
-                ))}
-              </DropdownButton>
-              <DropdownButton
-                title={"Comparando con: " + comparativeYear}
-                onSelect={handleComparativeYear}
-                className="d-inline mx-2"
-              >
-                {years.map((year) => (
-                  <Dropdown.Item eventKey={year}>{year}</Dropdown.Item>
-                ))}
-              </DropdownButton>
-            </Container>
-            <HighchartsReact highcharts={Highcharts} options={chartOptions} />
-          </div>
+      <div className="mt-4">
+        <h3>Estancia media según lugar de residencia</h3>
+        <div className="mt-3">
+          <p>
+            Se muestra el número de días que permanecen de media los turistas en
+            Canarias según su país de origen. Se ofrece la posibilidad de
+            visualizar esta información para una gran cantidad de años, además
+            también se puede comparar la información del año seleccionado con
+            cualquier otro dentro de los disponibles. Cabe destacar que en la
+            fuente oficial sólo existían datos para España a partir de 2019, por
+            ello en las gráficas, esta columna se muestra a cero para años
+            anteriores.
+          </p>
+          <Container className="center-buttons">
+            <DropdownButton
+              title={"Año: " + activeYear}
+              onSelect={handleActiveYear}
+              className="d-inline mx-2"
+            >
+              {years.map((year) => (
+                <Dropdown.Item eventKey={year} key={year}>
+                  {year}
+                </Dropdown.Item>
+              ))}
+            </DropdownButton>
+            <DropdownButton
+              title={"Comparando con: " + comparativeYear}
+              onSelect={handleComparativeYear}
+              className="d-inline mx-2"
+            >
+              {years.map((year) => (
+                <Dropdown.Item eventKey={year} key={year}>
+                  {year}
+                </Dropdown.Item>
+              ))}
+            </DropdownButton>
+          </Container>
+          <HighchartsReact highcharts={Highcharts} options={chartOptions} />
         </div>
-      }
+      </div>
     </div>
   );
 }

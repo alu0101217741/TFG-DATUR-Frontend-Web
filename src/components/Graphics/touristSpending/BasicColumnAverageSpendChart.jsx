@@ -48,7 +48,7 @@ function BasicColumnAverageSpendChart({ data }) {
     yAxis: {
       min: 0,
       title: {
-        text: "Gasto",
+        text: "Gasto (€)",
       },
     },
     tooltip: {
@@ -69,7 +69,7 @@ function BasicColumnAverageSpendChart({ data }) {
         borderWidth: 0,
       },
     },
-   exporting: {
+    exporting: {
       buttons: {
         contextButton: {
           menuItems: [
@@ -132,6 +132,7 @@ function BasicColumnAverageSpendChart({ data }) {
         {
           name: "Gasto total",
           data: yearsValues.map((value) => parseFloat((value / 4).toFixed(2))),
+          color: "#2f7ed8",
         },
       ];
 
