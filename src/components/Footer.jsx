@@ -11,14 +11,16 @@ function Footer() {
       <Container className="footer-container text-style">
         <Row>
           <Col lg={4} xs={12}>
-            <h2>Turismo</h2>
+            <div className="footer-img">
+              <img src="images/daturLogo.png" alt="Datur logo" />
+            </div>
             <p>
               Esta web muestra información acerca del turismo canario, a través
               de la visualización de los últimos datos disponibles para cuatro
               de los aspectos más relevantes del sector. Estos datos se obtienen
               del repositorio Canarias Datos Abiertos, de manera que la
-              información de la web se actualiza a medida que lo hace esta
-              fuente oficial.
+              información de la web se actualiza a medida que lo hace la fuente
+              oficial.
             </p>
           </Col>
           <Col lg={4} xs={12} className="footer-main-content link-style">

@@ -19,7 +19,7 @@ function SectionMainNavbar({ activeLink }) {
       <div className="d-none d-lg-block">
         <Navbar key="lg" expand="lg">
           <Navbar.Brand className="navbar-name" href="/">
-            Turismo
+            <img src="images/datur.png" alt="Datur logo" />
           </Navbar.Brand>
         </Navbar>
       </div>
@@ -27,7 +27,7 @@ function SectionMainNavbar({ activeLink }) {
         <Navbar className="navbar-bg" key="lg" expand="lg">
           <Container>
             <Navbar.Brand className="navbar-name" href="/">
-              Turismo
+              <img src="images/daturMobile.png" alt="Datur logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" />
             <Navbar.Offcanvas
@@ -40,7 +40,7 @@ function SectionMainNavbar({ activeLink }) {
                   className="mobile-menu"
                   id="offcanvasNavbarLabel-expand-lg"
                 >
-                  Turismo
+                  <img src="images/daturMobileName.png" alt="Datur logo" />
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>

@@ -4,6 +4,11 @@
   padding: 3em;
 }
 
+.footer-img {
+  margin-top: -1em;
+  margin-bottom: -0.5em;
+}
+
 .footer-main-content {
   text-align: center;
 }
@@ -37,5 +42,8 @@
 @media screen and (max-width: 768px) {
   .tourist-number-nationalities-container h1 {
     font-size: 30px;
+  }
+  .footer-img {
+    text-align: center;
   }
 }
