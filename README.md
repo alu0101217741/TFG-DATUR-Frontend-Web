@@ -1,72 +1,22 @@
-# TFG-FullStack-Turismo-Frontend
+# Procesamiento y visualización de datos abiertos en el sector turístico de Canarias - Frontend Web
 
-# Getting Started with Create React App
+## Alberto Mendoza Rodríguez - alu0101217741
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="https://danielalvarezm.github.io/UYA-Proyecto-de-accesibilidad/">
+    <img src="images/DATUR-logo.png" width="450" style="max-width:100%;">
+  </a>
+</p>
+<p align="center"><b>
+  Enlace a sitio web: <a href="https://datur.me/">https://datur.me/</a>
+</b></p>
 
-## Available Scripts
 
-In the project directory, you can run:
+<p align="center">
+El proyecto ha consistido en desarrollar una aplicación web y una aplicación Android, que permitan visualizar datos de interés acerca del turismo en Canarias. Los datos originales se han obtenido de un repositorio Open Data, sin embargo, antes de ser utilizados, se aplica un amplio procesamiento, que permite obtener datos con los que se puede generar información de valor. Una vez realizado este procesamiento, es posible emplear herramientas que visualicen los datos procesados. Cabe destacar que toda la información mostrada en las aplicaciones, siempre está actualizada con los últimos datos disponibles en el repositorio.
+</p>
 
-### `npm start`
+### Información del repositorio
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+En este repositorio se encuentra el código que implementa el frontend de la página web. Para desarrollarlo se ha empleado el framework **React** y la librería de visualización de datos **Highcharts**. Con ello se ha creado una página web con un diseño atractivo y responsivo, donde se muestra información acerca del turismo canario, a través de la visualización de los últimos datos disponibles para cuatro de los aspectos más relevantes del sector. Están disponibles cuatro secciones para ser consultadas, , navegando por todas ellas se pueden observar un total de 15 gráficos con diferentes estilos, opciones configurables y maneras de visualizar la información muy diversas.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
