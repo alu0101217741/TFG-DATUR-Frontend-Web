@@ -1,16 +1,16 @@
 import { touristSpendingWrapper } from "./touristSpendingWrapper";
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://www.datur.me";
 
 export async function getDataFromApi(collectionUrl) {
   try {
+    console.log(`URL: ${API_BASE_URL}${collectionUrl}`);
     const response = await fetch(`${API_BASE_URL}${collectionUrl}`, {
       method: "GET",
       headers: new Headers({
         "Content-type": "application/json",
         "Access-Control-Allow-Origin": "*",
       }),
-      mode: "cors",
     });
     const data = await response.json();
 
