@@ -227,7 +227,7 @@ function SemiCircleDonutChartBussinesChart({ data }) {
   return (
     <div>
       <div className="mt-4">
-        <h3>Marcha del negocio {chartExplication.trimester}</h3>
+        <h3>Marcha del negocio {chartExplication.trimester.toLowerCase()}</h3>
         <div className="mt-3 semicircle-style">
           <p>
             Estudiando la <b>marcha del negocio</b> para el{" "}
